@@ -1,0 +1,25 @@
+{
+	"name": "olyop",
+	"private": true,
+	"license": "MIT",
+	"version": "1.0.0",
+	"description": "olyop",
+	"bugs": "https://github.com/olyop/olyop/issues",
+	"homepage": "https://github.com/olyop/olyop/blob/master/README.md",
+	"author": {
+		"name": "Oliver Plummer",
+		"email": "oliver.plummer@outlook.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/olyop/olyop.git"
+	},
+	"scripts": {
+		"watch-sass": "node-sass -w index.scss index.css",
+		"sync": "git checkout . && git remote update && git pull",
+		"push": "clear && git status && git add -A && git commit -m \"Update\" && git push -u origin master"
+	},
+	"devDependencies": {
+		"node-sass": "^5.0.0"
+	}
+}

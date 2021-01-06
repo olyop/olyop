@@ -9,9 +9,9 @@
 	--border-color: #e0e0e0;
 
 	--font-size: 1px;
-	--font-family: "Roboto";
+	--font-family: "Josefin Sans", sans-serif;;
 
-	--line-height: 1;
+	--line-height: 1.5;
 	--info-height: 35rem;
 	--header-height: 60rem;
 	--player-height: 96rem;
@@ -78,14 +78,52 @@ html {
 
 .Root {
 	width: 100vw;
-	min-height: 100vh;
+	height: 100vh;
 	position: relative;
+	overflow-x: hidden;
 	background-color: #4CAF50; }
 
-.Main {
-	top: 50%;
-	height: 50%;
-	width: 100%;
+.GithubIcon {
+	top: 0;
+	right: 0;
+	font-size: 30rem;
 	position: absolute;
+	margin: var(--space-half);
+	padding: var(--space-half);
+	color: var(--text-color-white);
+	&:hover {
+		background-color: ; } }
+
+.Title {
+	font-size: 60rem;
+	text-align: center;
+	color: var(--text-color-white);
+	margin-top: var(--space-double);
+	&::after {
+		content: "";
+		height: 6rem;
+		width: 175rem;
+		display: block;
+		margin: 0 auto;
+		background-color: #fff;
+		transform: rotate(-2deg);
+		margin-top: var(--space-half);
+		border-radius: var(--border-radius);
+		box-shadow:
+			0 0 4px rgba(0, 0, 0, 0.14),
+			0 0 3px -2px rgba(0, 0, 0, 0.12),
+			0 0 8px rgba(0, 0, 0, 0.2); } }
+
+.SubTitle {
+	font-size: 22rem;
+	text-align: center;
+	color: var(--text-color-white);
+	margin-top: var(--space-one-half); }
+
+.Main {
+	width: 100%;
+	height: 200vh;
+	margin-top: var(--space);
 	background-color: #212121;
-	clip-path: polygon(0 26%, 100% 0, 100% 100%, 0% 100%); }
+	padding-top: calc(150rem + var(--space));
+	clip-path: polygon(0 150rem, 100% 0, 100% 100%, 0% 100%); }

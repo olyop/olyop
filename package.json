@@ -15,7 +15,7 @@
 		"url": "https://github.com/olyop/olyop.git"
 	},
 	"scripts": {
-		"watch-sass": "node-sass -w index.scss index.css",
+		"watch-sass": "node-sass -w src/index.scss src/index.css",
 		"sync": "git checkout . && git remote update && git pull",
 		"push": "clear && git status && git add -A && git commit -m \"Update\" && git push -u origin master"
 	},

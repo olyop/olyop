@@ -1,0 +1,91 @@
+:root {
+	--text-color: #333;
+	--elevated-color: #fff;
+	--hover-color: #eee;
+	--button-hover-color: #e0e0e0;
+	--text-color-white: #fff;
+	--text-color-light: #757575;
+	--background-color: #fafafa;
+	--border-color: #e0e0e0;
+
+	--font-size: 1px;
+	--font-family: "Roboto";
+
+	--line-height: 1;
+	--info-height: 35rem;
+	--header-height: 60rem;
+	--player-height: 96rem;
+	--player-height-mobile: 125rem;
+
+	--sidebar-width: 300rem;
+
+	--border-radius: 5px;
+
+	--space: 20rem;
+
+	--space-triple: calc(var(--space) * 3);
+	--space-double: calc(var(--space) * 2);
+	--space-one-half: calc(var(--space) * 1.5);
+	--space-one-quart: calc(var(--space) * 1.25);
+	--space-three-quart: calc(var(--space) * 0.75);
+	--space-half: calc(var(--space) * 0.5);
+	--space-quart: calc(var(--space) * 0.25);
+	--space-fifth: calc(var(--space) * 0.2);
+
+	--content-width: 100vw;
+
+	--transition-duration: 0.2s; }
+
+@media (prefers-color-scheme: light) {
+	:root {
+		--text-color: #333;
+		--hover-color: #eee;
+		--elevated-color: #fff;
+		--border-color: #e0e0e0;
+		--text-color-white: #fff;
+		--text-color-light: #757575;
+		--background-color: #fafafa; } }
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--text-color: #fafafa;
+		--hover-color: #424242;
+		--border-color: #424242;
+		--text-color-white: #333;
+		--elevated-color: #212121;
+		--text-color-light: #757575;
+		--background-color: #424242; } }
+
+html {
+	box-sizing: border-box;
+	color: var(--text-color);
+	font-size: var(--font-size);
+	font-family: var(--font-family);
+	line-height: var(--line-height);
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased; }
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	color: inherit;
+	font-size: inherit;
+	box-sizing: inherit;
+	font-family: inherit;
+	line-height: inherit; }
+
+.Root {
+	width: 100vw;
+	min-height: 100vh;
+	position: relative;
+	background-color: #4CAF50; }
+
+.Main {
+	top: 50%;
+	height: 50%;
+	width: 100%;
+	position: absolute;
+	background-color: #212121;
+	clip-path: polygon(0 26%, 100% 0, 100% 100%, 0% 100%); }

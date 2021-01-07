@@ -8,8 +8,10 @@
 	--background-color: #fafafa;
 	--border-color: #e0e0e0;
 
+	--header-color: #f4511e;
+
 	--font-size: 1px;
-	--font-family: "Josefin Sans", sans-serif;;
+	--font-family: "Josefin Sans", sans-serif;
 
 	--line-height: 1.5;
 	--info-height: 35rem;
@@ -81,18 +83,26 @@ html {
 	height: 100vh;
 	position: relative;
 	overflow-x: hidden;
-	background-color: #4CAF50; }
+	background-color: var(--header-color); }
 
 .GithubIcon {
 	top: 0;
-	right: 0;
+	z-index: 2;
+	right: 17px;
+	display: flex;
+	position: fixed;
+	cursor: pointer;
 	font-size: 30rem;
-	position: absolute;
-	margin: var(--space-half);
-	padding: var(--space-half);
+	align-items: center;
+	padding: var(--space);
+	justify-content: center;
 	color: var(--text-color-white);
+	transition: var(--transition-duration) background-color;
 	&:hover {
-		background-color: ; } }
+		background-color: #dd2c00; }
+	&__img {
+		width: 30rem;
+		height: 30rem; } }
 
 .Title {
 	font-size: 60rem;
@@ -105,10 +115,10 @@ html {
 		width: 175rem;
 		display: block;
 		margin: 0 auto;
-		background-color: #fff;
 		transform: rotate(-2deg);
 		margin-top: var(--space-half);
 		border-radius: var(--border-radius);
+		background-color: var(--text-color-white);
 		box-shadow:
 			0 0 4px rgba(0, 0, 0, 0.14),
 			0 0 3px -2px rgba(0, 0, 0, 0.12),
@@ -123,7 +133,20 @@ html {
 .Main {
 	width: 100%;
 	height: 200vh;
+	display: flex;
+	justify-content: center;
 	margin-top: var(--space);
-	background-color: #212121;
-	padding-top: calc(150rem + var(--space));
+	background-color: var(--background-color);
 	clip-path: polygon(0 150rem, 100% 0, 100% 100%, 0% 100%); }
+
+.Content {
+	width: 1000rem;
+	font-size: 16rem;
+	padding-top: 150rem;
+	background-color: #fff;
+	padding-left: var(--space);
+	padding-right: var(--space);
+	box-shadow:
+		0 0 4px rgba(0, 0, 0, 0.14),
+		0 0 3px -2px rgba(0, 0, 0, 0.12),
+		0 0 8px rgba(0, 0, 0, 0.2); }

@@ -28,16 +28,25 @@
 		<meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no">
 
 		<link href="/favicon.ico" rel="icon">
-		<link href="/index.css" rel="stylesheet">
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link href="/index.css" rel="stylesheet">
 	</head>
 	<body>
 		<div class="Root">
-			<i class="GithubIcon material-icons">
-				close
-			</i>
+			<a
+				role="button"
+				target="_blank"
+				class="GithubIcon"
+				title="Github Profile"
+				href="https://github.com/olyop?tab=repositories&type=source"
+			>
+				<img
+					class="GithubIcon__img"
+					src="/icons/github.png"
+				>
+			</a>
 			<h1 class="Title">
 				olyop
 			</h1>
@@ -45,7 +54,11 @@
 				Software developer <br>
 				located in Sydney, Australia.
 			</h2>
-			<div class="Main"></div>
+			<div class="Main">
+				<div class="Content">
+					Content
+				</div>
+			</div>
 		</div>
 	</body>
 </html>

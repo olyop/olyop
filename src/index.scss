@@ -13,7 +13,7 @@
 	--font-size: 1px;
 	--font-family: "Josefin Sans", sans-serif;
 
-	--line-height: 1.5;
+	--line-height: 1;
 	--info-height: 35rem;
 	--header-height: 60rem;
 	--player-height: 96rem;
@@ -34,18 +34,16 @@
 	--space-quart: calc(var(--space) * 0.25);
 	--space-fifth: calc(var(--space) * 0.2);
 
-	--content-width: 100vw;
+	--connect-icon-width: 30rem;
 
 	--transition-duration: 0.2s; }
 
 @media (prefers-color-scheme: light) {
 	:root {
-		--text-color: #333;
 		--hover-color: #eee;
+		--text-color: #212121;
 		--elevated-color: #fff;
 		--border-color: #e0e0e0;
-		--text-color-white: #fff;
-		--text-color-light: #757575;
 		--background-color: #fafafa; } }
 
 @media (prefers-color-scheme: dark) {
@@ -53,9 +51,7 @@
 		--text-color: #fafafa;
 		--hover-color: #424242;
 		--border-color: #424242;
-		--text-color-white: #333;
 		--elevated-color: #212121;
-		--text-color-light: #757575;
 		--background-color: #424242; } }
 
 html {
@@ -81,72 +77,69 @@ html {
 .Root {
 	width: 100vw;
 	height: 100vh;
+	overflow: hidden;
 	position: relative;
-	overflow-x: hidden;
-	background-color: var(--header-color); }
+	background-color: var(--background-color); }
 
-.GithubIcon {
+.Connect {
 	top: 0;
+	right: 0;
 	z-index: 2;
-	right: 17px;
-	display: flex;
 	position: fixed;
-	cursor: pointer;
-	font-size: 30rem;
+	border-left: 1rem solid var(--border-color);
+	border-bottom: 1rem solid var(--border-color);
+	&__icon {
+		display: flex;
+		cursor: pointer;
+		position: relative;
+		align-items: center;
+		padding: var(--space);
+		justify-content: center;
+		color: var(--text-color-white);
+		font-size: var(--connect-width);
+		border-bottom: 1rem solid var(--border-color);
+		transition: var(--transition-duration) background-color;
+		&:hover {
+			background-color: var(--hover-color); }
+		&:last-child {
+			border-bottom: 0; }
+		&-img {
+			width: 30rem;
+			height: 30rem; } } }
+
+.Content {
+	display: flex;
 	align-items: center;
+	flex-direction: column;
+	padding: 0 calc(var(--connect-width) + 2 * var(--space) + 2rem); }
+
+.Profile {
+	cursor: pointer;
+	font-size: 150rem;
+	user-select: none;
+	border-radius: 100%;
 	padding: var(--space);
-	justify-content: center;
-	color: var(--text-color-white);
-	transition: var(--transition-duration) background-color;
-	&:hover {
-		background-color: #dd2c00; }
-	&__img {
-		width: 30rem;
-		height: 30rem; } }
+	color: var(--text-color);
+	margin-top: var(--space-double);
+	margin-bottom: var(--space-double);
+	background-color: var(--hover-color); }
 
 .Title {
 	font-size: 60rem;
 	text-align: center;
-	color: var(--text-color-white);
-	margin-top: var(--space-double);
+	color: var(--text-color);
 	&::after {
 		content: "";
 		height: 6rem;
-		width: 175rem;
+		width: 200rem;
 		display: block;
-		margin: 0 auto;
 		transform: rotate(-2deg);
 		margin-top: var(--space-half);
 		border-radius: var(--border-radius);
-		background-color: var(--text-color-white);
-		box-shadow:
-			0 0 4px rgba(0, 0, 0, 0.14),
-			0 0 3px -2px rgba(0, 0, 0, 0.12),
-			0 0 8px rgba(0, 0, 0, 0.2); } }
+		background-color: var(--text-color); } }
 
 .SubTitle {
 	font-size: 22rem;
 	text-align: center;
-	color: var(--text-color-white);
-	margin-top: var(--space-one-half); }
-
-.Main {
-	width: 100%;
-	height: 200vh;
-	display: flex;
-	justify-content: center;
-	margin-top: var(--space);
-	background-color: var(--background-color);
-	clip-path: polygon(0 150rem, 100% 0, 100% 100%, 0% 100%); }
-
-.Content {
-	width: 1000rem;
-	font-size: 16rem;
-	padding-top: 150rem;
-	background-color: #fff;
-	padding-left: var(--space);
-	padding-right: var(--space);
-	box-shadow:
-		0 0 4px rgba(0, 0, 0, 0.14),
-		0 0 3px -2px rgba(0, 0, 0, 0.12),
-		0 0 8px rgba(0, 0, 0, 0.2); }
+	color: var(--text-color);
+	margin-top: var(--space-double); }

@@ -13,10 +13,13 @@
 	},
 	"scripts": {
 		"sync": "git checkout . && git remote update && git pull",
+		"prepush": "npm run build",
 		"push": "git add -A && git commit -m \"Update\" && git push -u origin main",
-		"init": "clear && del-cli build && mkdir -m777 build",
+		"init": "clear",
 		"prebuild": "npm run init",
-		"build": "cross-env NODE_OPTIONS=\"--openssl-legacy-provider -r dotenv/config\" webpack --config webpack.config.ts",
+		"build": "npm-run-all build:*",
+		"build:static": "cpy src/public .",
+		"build:webpack": "cross-env NODE_OPTIONS=\"--openssl-legacy-provider -r dotenv/config\" webpack --config webpack.config.ts",
 		"prestart": "npm run init && kill-port 3000",
 		"start": "cross-env NODE_OPTIONS=\"--experimental-specifier-resolution=node --openssl-legacy-provider -r dotenv/config\" webpack serve --config webpack.config.ts"
 	},
@@ -53,6 +56,7 @@
 		"html-webpack-plugin": "5.5.0",
 		"kill-port": "1.6.1",
 		"mini-css-extract-plugin": "2.4.6",
+		"npm-run-all": "4.1.5",
 		"sass": "1.47.0",
 		"sass-loader": "12.4.0",
 		"source-map-loader": "3.0.1",

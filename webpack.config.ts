@@ -10,8 +10,8 @@ const IS_DEV =
 
 const ROOT_PATH = __dirname
 const SRC_PATH = path.join(ROOT_PATH, "src")
-const SRC_ROOT_PATH = path.join(SRC_PATH, "index.ts")
 const SRC_PUBLIC_PATH = path.join(SRC_PATH, "public")
+const SRC_ROOT_PATH = path.join(SRC_PATH, "index.tsx")
 const SRC_ENTRY_PATH = path.join(SRC_PATH, "index.html")
 
 const config: Configuration = {
@@ -27,6 +27,7 @@ const config: Configuration = {
 		/Failed to parse source map/,
 	],
 	devServer: {
+		hot: true,
 		host: process.env.HOST,
 		port: process.env.PORT,
 		historyApiFallback: true,
@@ -35,7 +36,7 @@ const config: Configuration = {
 	},
 	resolve: {
 		symlinks: false,
-		extensions: [".js", ".ts"],
+		extensions: [".js", ".ts", ".tsx"],
 	},
 	module: {
 		rules: [{

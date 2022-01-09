@@ -25,12 +25,15 @@
 	},
 	"devDependencies": {
 		"@oly_op/eslint-config": "5.1.6",
+		"@oly_op/eslint-config-react": "3.0.7",
 		"@oly_op/stylelint-config": "2.0.4",
 		"@oly_op/tsconfig": "1.0.7",
 		"@types/dotenv-webpack": "7.0.3",
 		"@types/eslint": "8.2.2",
 		"@types/mini-css-extract-plugin": "2.4.0",
 		"@types/node": "17.0.8",
+		"@types/react": "17.0.38",
+		"@types/react-dom": "17.0.11",
 		"@types/webpack": "5.28.0",
 		"@types/webpack-dev-server": "4.5.1",
 		"@types/webpack-env": "1.16.3",
@@ -51,8 +54,11 @@
 		"eslint-config-airbnb": "19.0.4",
 		"eslint-config-airbnb-typescript": "16.1.0",
 		"eslint-plugin-import": "2.25.4",
+		"eslint-plugin-jsx-a11y": "6.5.1",
 		"eslint-plugin-node": "11.1.0",
 		"eslint-plugin-promise": "6.0.0",
+		"eslint-plugin-react": "7.28.0",
+		"eslint-plugin-react-hooks": "4.3.0",
 		"html-webpack-plugin": "5.5.0",
 		"kill-port": "1.6.1",
 		"mini-css-extract-plugin": "2.4.6",
@@ -70,5 +76,13 @@
 		"webpack-cli": "4.9.1",
 		"webpack-dev-server": "4.7.2",
 		"write-file-webpack-plugin": "4.5.1"
+	},
+	"dependencies": {
+		"@oly_op/bem": "5.0.8",
+		"@oly_op/css-utilities": "2.0.61",
+		"@oly_op/react-button": "4.5.9",
+		"@oly_op/react-image": "1.1.2",
+		"react": "17.0.2",
+		"react-dom": "17.0.2"
 	}
 }

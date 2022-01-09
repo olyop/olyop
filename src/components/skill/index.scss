@@ -1,0 +1,30 @@
+.Skill {
+	--icon-dim: 22rem;
+	width: 100%;
+	position: relative;
+	transition: var(--transition-duration) border-color;
+	transition: var(--transition-duration) background-color;
+	&:hover {
+		border-color: var(--border-hover-color); }
+	&__expand {
+		top: 50%;
+		right: 11%;
+		opacity: 0;
+		position: absolute;
+		transform: translate(0, -54%);
+		transition: var(--transition-duration) opacity;
+		&:hover {
+			background-color: transparent !important; } }
+	&__collapse {
+		width: 100%; }
+	&__icon {
+		width: var(--icon-dim);
+		height: var(--icon-dim);
+		margin-bottom: -1rem; }
+	&__title {
+		font-size: var(--icon-dim); }
+	&__content {
+		height: 0;
+		display: none;
+		visibility: hidden;
+		transition: var(--transition-duration) height; } }

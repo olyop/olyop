@@ -1,7 +1,9 @@
 import path from "path"
 import { Configuration } from "webpack"
 import DotenvPlugin from "dotenv-webpack"
+import CopyWebpackPlugin from "copy-webpack-plugin"
 import HTMLWebpackPlugin from "html-webpack-plugin"
+import CompressionPlugin from "compression-webpack-plugin"
 import MiniCSSExtractPlugin from "mini-css-extract-plugin"
 import CSSMinimizerPlugin from "css-minimizer-webpack-plugin"
 
@@ -29,7 +31,6 @@ const config: Configuration = {
 		/Failed to parse source map/,
 	],
 	devServer: {
-		hot: true,
 		host: process.env.HOST,
 		port: process.env.PORT,
 		historyApiFallback: true,
@@ -84,9 +85,16 @@ const config: Configuration = {
 			template: SRC_ENTRY_PATH,
 		}),
 		...(IS_DEV ? [] : [
+			new CompressionPlugin(),
 			new CSSMinimizerPlugin(),
 			new MiniCSSExtractPlugin({
 				filename: "[fullhash].css",
+			}),
+			new CopyWebpackPlugin({
+				patterns: [{
+					to: BUILD_PATH,
+					from: SRC_PUBLIC_PATH,
+				}],
 			}),
 		]),
 	],

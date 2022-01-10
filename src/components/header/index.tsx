@@ -1,11 +1,7 @@
 import { createBEM } from "@oly_op/bem"
 import Button from "@oly_op/react-button"
-import { createElement, useState, VFC } from "react"
-
-import "@oly_op/css-utilities/index.css"
-import "@oly_op/react-image/build/index.css"
-import "@oly_op/react-button/build/index.css"
-import "../../index.scss"
+import { NavLink } from "react-router-dom"
+import { createElement, useEffect, useState, VFC } from "react"
 
 import "./index.scss"
 
@@ -18,33 +14,60 @@ const EMAIL =
 const Header: VFC = () => {
 	const [ isCopied, setIsCopied ] =
 		useState(false)
+
 	const handleEmailCopy =
 		async () => {
 			await navigator.clipboard.writeText(EMAIL)
 			setIsCopied(true)
 		}
+
+	useEffect(() => {
+		if (isCopied) {
+			const timer = setTimeout(() => {
+				setIsCopied(false)
+			}, 2000)
+			return () => clearTimeout(timer)
+		} else {
+			return () => {}
+		}
+	}, [isCopied])
+
 	return (
 		<div className={bem("", "FlexColumn")}>
-			<h1 className={bem("title", "HeadingOne")}>
-				olyop
-			</h1>
+			<NavLink to="">
+				<h1 className={bem("title", "HeadingOne")}>
+					olyop
+				</h1>
+			</NavLink>
 			<div className="FlexColumnGapHalf">
-				<div className="FlexRowGapHalf">
+				<div className={bem("email", "FlexRowGapHalf")}>
+					<Button
+						transparent
+						icon="email"
+						title="Email"
+						iconClassName={bem("email-icon-icon")}
+						className={bem("email-email", "email-icon")}
+					/>
 					<address className={bem("email-text", "BodyTwo")}>
-						oliver.plummer@outlook.com
+						<a
+							children={EMAIL}
+							title="Send Email"
+							href={`mailto:${EMAIL}`}
+							className={bem("email-link")}
+						/>
 					</address>
 					<Button
 						transparent
 						title="Copy"
 						icon="content_copy"
 						onClick={handleEmailCopy}
-						className={bem("email-copy")}
-						iconClassName={bem("email-copy-icon")}
+						iconClassName={bem("email-icon-icon")}
+						className={bem("email-copy", "email-icon")}
 					/>
 				</div>
 				{isCopied && (
-					<p className="BodyTwo">
-						Copied
+					<p className={bem("email-copied", "BodyTwo")}>
+						Copied!
 					</p>
 				)}
 			</div>

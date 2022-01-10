@@ -1,0 +1,8 @@
+.Home {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	gap: var(--space-triple);
+	&__title {
+		font-weight: 500;
+		font-size: 28rem; } }

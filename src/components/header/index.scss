@@ -18,9 +18,25 @@
 			transform: translateX(-50%);
 			background-color: var(--border-color); } }
 	&__email {
+		&:hover &-copy {
+			visibility: visible; }
 		&-text {
 			font-size: 16rem; }
-		&-copy {
-			--button-dimension: 31rem;
+		&-link {
+			&:hover {
+				text-decoration: underline; } }
+		&-icon {
+			--button-dimension: 25rem;
 			&-icon {
-				margin-top: 2rem; } } } }
+				margin-top: 2rem; } }
+		&-email {
+			cursor: unset;
+			&:hover,
+			&:focus {
+				background-color: transparent; } }
+		&-copy {
+			visibility: hidden; }
+		&-copied {
+			font-size: 13rem;
+			font-weight: 300;
+			font-style: italic; } } }

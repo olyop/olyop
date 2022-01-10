@@ -14,13 +14,15 @@ const SRC_PUBLIC_PATH = path.join(SRC_PATH, "public")
 const SRC_ROOT_PATH = path.join(SRC_PATH, "index.tsx")
 const SRC_ENTRY_PATH = path.join(SRC_PATH, "index.html")
 
+const BUILD_PATH = path.join(ROOT_PATH, "build")
+
 const config: Configuration = {
 	entry: SRC_ROOT_PATH,
 	mode: process.env.NODE_ENV,
 	devtool: IS_DEV ? "inline-source-map" : false,
 	output: {
-		path: ROOT_PATH,
 		publicPath: "/",
+		path: BUILD_PATH,
 		filename: "[fullhash].js",
 	},
 	ignoreWarnings: [

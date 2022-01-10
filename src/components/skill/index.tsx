@@ -3,11 +3,6 @@ import { createBEM } from "@oly_op/bem"
 import Button from "@oly_op/react-button"
 import { createElement, ReactNode, useState, VFC } from "react"
 
-import "@oly_op/css-utilities/index.css"
-import "@oly_op/react-image/build/index.css"
-import "@oly_op/react-button/build/index.css"
-import "../../index.scss"
-
 import "./index.scss"
 
 const bem =
@@ -40,7 +35,7 @@ const Skill: VFC<SkillPropTypes> =
 				onMouseEnter={handleOnEnter}
 				onMouseLeave={handleOnLeave}
 				title={expand ? undefined : "Expand"}
-				className={bem("", expand || "Hover", "Padding MarginBottom Border Rounded")}
+				className={bem("", expand || "Hover", "Padding Border Rounded")}
 				style={expand ? { borderColor: "var(--border-color)" } : { cursor: "pointer" }}
 			>
 				{expand || (
@@ -55,21 +50,21 @@ const Skill: VFC<SkillPropTypes> =
 					<Image
 						url={icon}
 						title={title}
-						className={bem("icon", "Rounded")}
+						className={bem("icon")}
 					/>
 					<h4 className={bem("title", "HeadingSix")}>
 						{title}
 					</h4>
 				</div>
 				<div
-					className={bem("content", "BodyOne")}
+					className={bem("content")}
 					style={expand ? {
 						height: "100%",
 						display: "block",
 						visibility: "visible",
 					} : undefined}
 				>
-					<p className="BodyOne MarginTopHalf">
+					<p className="BodyTwo MarginTopHalf">
 						{children}
 					</p>
 					<Button

@@ -1,12 +1,14 @@
-:root {
+:root,
+*::after,
+*::before {
 	--border-width: 3rem;
 	--border-color: #e2e1e1;
 	--header-height: 110rem;
 	--border-hover-color: #d1d0d0;
 
-	--primary-color: #f57c00;
-	--primary-color-dark: #bb4d00;
-	--primary-color-light: #ffad42;
+	--primary-color: #66bb6a;
+	--primary-color-dark: #338a3e;
+	--primary-color-light: #98ee99;
 
 	--secondary-color: #78909c;
 	--secondary-color-dark: #4b636e;
@@ -24,25 +26,14 @@
 
 .BodyOne {
 	line-height: 1.2;
+	font-size: 20rem; }
+
+.BodyOne,
+.BodyTwo,
+.HeadingOne,
+.HeadingFive {
 	text-align: center; }
 
-.Root {
-	padding: 0 calc(var(--space) * 4);
-	&__content {
-		--dim: 550rem;
-		display: flex;
-		width: var(--dim);
-		align-items: center;
-		flex-direction: column;
-		@media (max-width: 800px) {
-			width: 100%; } }
-	&__title {
-		font-size: 65rem;
-		letter-spacing: 2rem;
-		&-text {
-			width: 65%;
-			&-first {
-				font-weight: 500;
-				font-size: 24rem; }
-			&-second {
-				font-size: 20rem; } } } }
+.Index {
+	position: relative;
+	padding: 0 calc(var(--space) * 4); }

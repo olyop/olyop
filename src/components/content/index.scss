@@ -1,0 +1,18 @@
+.Content {
+	--dim: 550rem;
+	display: flex;
+	width: var(--dim);
+	align-items: center;
+	flex-direction: column;
+	gap: var(--space-double);
+	@media (max-width: 800px) {
+		width: 100%; }
+	&__intro {
+		width: 70%;
+		align-items: center;
+		gap: var(--space-double);
+		&-title {
+			font-weight: 500;
+			font-size: 28rem; }
+		&-can {
+			--button-dimension: 45rem; } } }

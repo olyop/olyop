@@ -79,8 +79,8 @@
 	},
 	"dependencies": {
 		"@oly_op/bem": "5.0.8",
-		"@oly_op/css-utilities": "2.0.61",
-		"@oly_op/react-button": "4.5.9",
+		"@oly_op/css-utilities": "2.0.62",
+		"@oly_op/react-button": "4.5.22",
 		"@oly_op/react-image": "1.1.2",
 		"react": "17.0.2",
 		"react-dom": "17.0.2"

@@ -1,0 +1,26 @@
+.Header {
+	left: 50%;
+	position: absolute;
+	top: var(--space-double);
+	gap: var(--space-double);
+	transform: translateX(-50%);
+	&__title {
+		font-size: 65rem;
+		position: relative;
+		letter-spacing: 5rem;
+		&::after {
+			left: 50%;
+			width: 50%;
+			bottom: -41%;
+			content: "";
+			position: absolute;
+			height: var(--border-width);
+			transform: translateX(-50%);
+			background-color: var(--border-color); } }
+	&__email {
+		&-text {
+			font-size: 16rem; }
+		&-copy {
+			--button-dimension: 31rem;
+			&-icon {
+				margin-top: 2rem; } } } }

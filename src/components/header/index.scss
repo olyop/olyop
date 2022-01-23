@@ -1,9 +1,5 @@
 .Header {
-	left: 50%;
-	position: absolute;
-	top: var(--space-double);
 	gap: var(--space-double);
-	transform: translateX(-50%);
 	&__title {
 		font-size: 65rem;
 		position: relative;

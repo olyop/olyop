@@ -1,6 +1,5 @@
 .Footer {
-	left: 50%;
-	position: absolute;
-	gap: var(--space-double);
-	bottom: var(--space-double);
-	transform: translateX(-50%) scale(150%); }
+	width: 100%;
+	height: 42rem;
+	&__inner {
+		transform: scale(150%) translateY(5rem); } }

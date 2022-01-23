@@ -1,6 +1,4 @@
-:root,
-*::after,
-*::before {
+:root {
 	--border-width: 3rem;
 	--border-color: #e2e1e1;
 	--header-height: 110rem;
@@ -17,39 +15,23 @@
 	--hover-color: #ede9e9;
 	--background-color: #f7f2f2;
 
-	--transition-duration: 0.4s;
-
-	--font-family: "Roboto", system-ui; }
-
-html {
-	@media (max-width: 700px) {
-		font-size: 0.9px; }
-	@media (max-width: 500px) {
-		font-size: 0.8px; }
-	@media (max-width: 400px) {
-		font-size: 0.7px; } }
+	--font-family: "Roboto", sans-serif; }
 
 #Root {
 	background-color: var(--background-color); }
 
+.BodyOne,
+.BodyTwo {
+	line-height: 1.2; }
+
 .BodyOne {
-	line-height: 1.2;
 	font-size: 20rem; }
+
+.BodyTwo {
+	font-size: 16rem; }
 
 .BodyOne,
 .BodyTwo,
 .HeadingOne,
 .HeadingFive {
-	text-align: center;
-	@media (max-width: 400px) {
-		text-align: justify;
-		br {
-			display: none; } } }
-
-.Index {
-	position: relative;
-	padding: 0 calc(var(--space) * 4);
-	@media (max-width: 800px) {
-		padding: 0;
-		&__inner {
-			border: 0; } } }
+	text-align: center; }

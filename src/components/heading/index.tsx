@@ -8,9 +8,9 @@ const bem =
 
 const Heading: VFC<HeadingPropTypes> =
 	({ className, children }) => (
-		<h3 className={bem(className, "", "HeadingFive")}>
+		<h2 className={bem(className, "", "HeadingFive")}>
 			{children}
-		</h3>
+		</h2>
 	)
 
 export interface HeadingPropTypes {

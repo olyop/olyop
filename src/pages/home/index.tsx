@@ -2,18 +2,14 @@ import { createBEM } from "@oly_op/bem"
 import { createElement, VFC } from "react"
 import { Metadata } from "@oly_op/react-metadata"
 
-import "@oly_op/css-utilities/index.css"
-import "@oly_op/react-image/build/index.css"
-import "@oly_op/react-button/build/index.css"
-import "../../index.scss"
+import BigButton from "../../components/big-button"
 
 import "./index.scss"
-import BigButton from "../big-button"
 
 const bem =
 	createBEM("Home")
 
-const Home: VFC = () => (
+const HomePage: VFC = () => (
 	<Metadata>
 		<div className={bem("", "FlexColumn")}>
 			<h2 className={bem("title", "HeadingFive")}>
@@ -22,12 +18,12 @@ const Home: VFC = () => (
 				Welcome!
 			</h2>
 			<div className="FlexColumnGapHalf">
-				<p className="BodyOne MarginBottomHalf">
+				<p className="BodyOne">
 					I am a <b>fullstack</b> software developer<br/>
 					based in Sydney, Australia.
 				</p>
-				<p className="BodyOne MarginBottomHalf">
-					I specializie in<br/>
+				<p className="BodyOne">
+					I specialise in<br/>
 					designing, developing, and deploying<br/>
 					fully featured <b>single-page applications </b>
 					across the stack while scaling them in the cloud.
@@ -35,18 +31,18 @@ const Home: VFC = () => (
 				<p className="BodyOne">
 					Need a <b>website</b>?<br/>
 					I can create and deploy a<br/>
-					<b> personal</b> or <b>buisness</b><br/>
+					<b> personal</b> or <b>business</b><br/>
 					website with any requirements.
 				</p>
 			</div>
 			<BigButton
-				icon="arrow_right_alt"
-				to="/what-i-can-do-for-you"
 				title="You'll be suprised"
+				rightIcon="arrow_right_alt"
+				to="/what-i-can-do-for-you"
 				text="What I can do for you"
 			/>
 		</div>
 	</Metadata>
 )
 
-export default Home
+export default HomePage

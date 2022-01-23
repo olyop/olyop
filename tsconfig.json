@@ -10,7 +10,8 @@
 			"module": "CommonJS"
 		},
 		"moduleTypes": {
-			"webpack.config.ts": "cjs",
+			"scripts/*": "cjs",
+			"webpack.config.ts": "cjs"
 		}
 	},
 	"exclude": [

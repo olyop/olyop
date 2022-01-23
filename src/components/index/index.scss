@@ -1,0 +1,12 @@
+.Index {
+	padding: 0 var(--space-triple);
+	@media (max-width: 800px) {
+		padding: var(--space-double); }
+	&__inner {
+		height: 100%;
+		padding: var(--space-double) 0;
+		justify-content: space-between;
+		@media (max-width: 800px) {
+			border: 0;
+			padding: 0;
+			gap: var(--space-triple); } } }

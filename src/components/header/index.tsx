@@ -3,6 +3,12 @@ import Button from "@oly_op/react-button"
 import { NavLink } from "react-router-dom"
 import { createElement, useEffect, useState, VFC } from "react"
 
+import "../../fonts.scss"
+import "@oly_op/css-utilities/index.css"
+import "@oly_op/react-image/build/index.css"
+import "@oly_op/react-button/build/index.css"
+import "../../index.scss"
+
 import "./index.scss"
 
 const bem =
@@ -33,43 +39,36 @@ const Header: VFC = () => {
 	}, [isCopied])
 
 	return (
-		<div className={bem("", "FlexColumn")}>
+		<div className={bem("", "FlexColumnCenter")}>
 			<NavLink to="">
 				<h1 className={bem("title", "HeadingOne")}>
-					olyop
+					oliver
 				</h1>
 			</NavLink>
-			<div className="FlexColumnGapHalf">
-				<div className={bem("email", "FlexRowGapHalf")}>
-					<Button
-						transparent
-						icon="email"
-						title="Email"
-						iconClassName={bem("email-icon-icon")}
-						className={bem("email-email", "email-icon")}
+			<div className={bem("email", "FlexRowGapHalf")}>
+				<Button
+					transparent
+					icon="email"
+					title="Email"
+					iconClassName={bem("email-icon-icon")}
+					className={bem("email-email", "email-icon")}
+				/>
+				<address className={bem("email-text", "BodyTwo")}>
+					<a
+						children={EMAIL}
+						title="Send Email"
+						href={`mailto:${EMAIL}`}
+						className={bem("email-link")}
 					/>
-					<address className={bem("email-text", "BodyTwo")}>
-						<a
-							children={EMAIL}
-							title="Send Email"
-							href={`mailto:${EMAIL}`}
-							className={bem("email-link")}
-						/>
-					</address>
-					<Button
-						transparent
-						title="Copy"
-						icon="content_copy"
-						onClick={handleEmailCopy}
-						iconClassName={bem("email-icon-icon")}
-						className={bem("email-copy", "email-icon")}
-					/>
-				</div>
-				{isCopied && (
-					<p className={bem("email-copied", "BodyTwo")}>
-						Copied!
-					</p>
-				)}
+				</address>
+				<Button
+					transparent
+					title="Copy"
+					icon="content_copy"
+					onClick={handleEmailCopy}
+					iconClassName={bem("email-icon-icon")}
+					className={bem("email-copy", "email-icon")}
+				/>
 			</div>
 		</div>
 	)

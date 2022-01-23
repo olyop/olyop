@@ -3,14 +3,14 @@ import { Configuration } from "webpack"
 import DotenvPlugin from "dotenv-webpack"
 import CopyWebpackPlugin from "copy-webpack-plugin"
 import HTMLWebpackPlugin from "html-webpack-plugin"
-import CompressionPlugin from "compression-webpack-plugin"
 import MiniCSSExtractPlugin from "mini-css-extract-plugin"
 import CSSMinimizerPlugin from "css-minimizer-webpack-plugin"
+import { Configuration as DevServerConfiguration } from "webpack-dev-server"
 
 const IS_DEV =
 	process.env.NODE_ENV === "development"
 
-const ROOT_PATH = __dirname
+const ROOT_PATH = process.cwd()
 const SRC_PATH = path.join(ROOT_PATH, "src")
 const SRC_PUBLIC_PATH = path.join(SRC_PATH, "public")
 const SRC_ROOT_PATH = path.join(SRC_PATH, "index.tsx")
@@ -18,7 +18,17 @@ const SRC_ENTRY_PATH = path.join(SRC_PATH, "index.html")
 
 const BUILD_PATH = path.join(ROOT_PATH, "build")
 
+const devServer: DevServerConfiguration = {
+	host: process.env.HOST,
+	port: process.env.PORT,
+	historyApiFallback: true,
+	client: { logging: "error" },
+	static: { directory: SRC_PUBLIC_PATH },
+}
+
 const config: Configuration = {
+	devServer,
+	stats: "errors-only",
 	entry: SRC_ROOT_PATH,
 	mode: process.env.NODE_ENV,
 	devtool: IS_DEV ? "inline-source-map" : false,
@@ -30,13 +40,6 @@ const config: Configuration = {
 	ignoreWarnings: [
 		/Failed to parse source map/,
 	],
-	devServer: {
-		host: process.env.HOST,
-		port: process.env.PORT,
-		historyApiFallback: true,
-		client: { logging: "error" },
-		static: { directory: SRC_PUBLIC_PATH },
-	},
 	resolve: {
 		symlinks: false,
 		extensions: [".js", ".ts", ".tsx"],
@@ -85,7 +88,6 @@ const config: Configuration = {
 			template: SRC_ENTRY_PATH,
 		}),
 		...(IS_DEV ? [] : [
-			new CompressionPlugin(),
 			new CSSMinimizerPlugin(),
 			new MiniCSSExtractPlugin({
 				filename: "[fullhash].css",

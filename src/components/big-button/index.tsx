@@ -8,24 +8,33 @@ import "./index.scss"
 const bem =
 	createBEM("BigButton")
 
-const BigButton: VFC<BigButtonPropTypes> =
-	({ to, text, icon, title }) => (
-		<NavLink to={to}>
-			<Button
-				transparent
-				text={text}
-				title={title}
-				rightIcon={icon}
-				className={bem("", "Border")}
-			/>
-		</NavLink>
-	)
+const BigButton: VFC<BigButtonPropTypes> = ({
+	to,
+	text,
+	title,
+	leftIcon,
+	rightIcon,
+	hideBorder = false,
+}) => (
+	<NavLink to={to}>
+		<Button
+			transparent
+			text={text}
+			title={title}
+			icon={leftIcon}
+			rightIcon={rightIcon}
+			className={bem("", hideBorder || "Border")}
+		/>
+	</NavLink>
+)
 
 export interface BigButtonPropTypes {
 	to: string,
 	text: string,
-	icon: string,
 	title: string,
+	leftIcon?: string,
+	rightIcon?: string,
+	hideBorder?: boolean,
 }
 
 export default BigButton

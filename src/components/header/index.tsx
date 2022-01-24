@@ -42,7 +42,7 @@ const Header: VFC = () => {
 		<div className={bem("", "FlexColumnCenter")}>
 			<NavLink to="">
 				<h1 className={bem("title", "HeadingOne")}>
-					oliver
+					ollie
 				</h1>
 			</NavLink>
 			<div className={bem("email", "FlexRowGapHalf")}>

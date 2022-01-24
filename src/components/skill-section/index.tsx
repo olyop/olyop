@@ -17,15 +17,22 @@ const expandStyle: CSSProperties = {
 	transform: "scaleY(1)",
 }
 
+const closedStyle: CSSProperties = {
+	height: 0,
+	visibility: "hidden",
+	transform: "scaleY(0)",
+}
+
 const SkillSection: VFC<SkillSectionPropTypes> = ({
 	skill: {
 		icon,
 		title,
 		skills,
 		imagePath,
+		initialExpand = false,
 	},
 }) => {
-	const [ expand, setExpand ] = useState(false)
+	const [ expand, setExpand ] = useState(initialExpand)
 
 	const handleExpandOpen =
 		() => {
@@ -73,21 +80,19 @@ const SkillSection: VFC<SkillSectionPropTypes> = ({
 					{title}
 				</h3>
 			</div>
-			{expand && (
-				<div
-					className={bem("content")}
-					style={expand ? expandStyle : undefined}
-				>
-					{skills.map(
-						skill => (
-							<Skill
-								skill={skill}
-								key={skill.title}
-							/>
-						),
-					)}
-				</div>
-			)}
+			<div
+				className={bem("content")}
+				style={expand ? expandStyle : closedStyle}
+			>
+				{skills.map(
+					skill => (
+						<Skill
+							skill={skill}
+							key={skill.title}
+						/>
+					),
+				)}
+			</div>
 		</div>
 	)
 }

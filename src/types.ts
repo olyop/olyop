@@ -11,15 +11,21 @@ interface SkillBase {
 	icon?: string,
 	content: string,
 	imagePath?: string,
+
+	// temporary
+	initialExpand?: boolean,
 }
 
-export interface Skill extends SkillBase {
+export interface SkillLevel {
+	level: 1 | 2 | 3 | 4 | 5,
+}
+
+export interface Skill extends SkillBase, SkillLevel {
 	title: string,
 	icon?: string,
 	content: string,
 	imagePath?: string,
-	level: 1 | 2 | 3 | 4 | 5,
-	experience?: SkillExperience,
+	experience: SkillExperience,
 }
 
 export interface SkillSection extends SkillBase {

@@ -30,11 +30,8 @@
 	&__title {
 		font-size: var(--icon-dim); }
 	&__content {
-		height: 0;
 		width: 100%;
 		display: grid;
-		visibility: hidden;
-		transform: scaleY(0);
 		transform-origin: top;
 		gap: var(--space-three-quart);
 		transition: transform var(--transition-duration) ease-in-out;

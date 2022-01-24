@@ -1,0 +1,11 @@
+.Level {
+	--dim: 16rem;
+	display: grid;
+	height: var(--dim);
+	gap: var(--space-quart);
+	grid-template-columns: var(--dim) var(--dim) var(--dim) var(--dim) var(--dim);
+	&__icon {
+		border-radius: 3rem;
+		background-color: var(--grey-color-300);
+		&-filled {
+			background-color: var(--primary-color); } } }

@@ -2,6 +2,7 @@ import { SkillSection, SkillExperience } from "../../types"
 
 const content: SkillSection[] = [
 	{
+		initialExpand: true,
 		content: "",
 		title: "JavaScript",
 		imagePath: "/js.png",
@@ -20,41 +21,66 @@ const content: SkillSection[] = [
 				`,
 			},
 			{
-				level: 5,
+				level: 4,
 				title: "Node",
-				experience: SkillExperience.TWO_YEARS,
+				experience: SkillExperience.THREE_YEARS,
 				imagePath: "/node.png",
 				content: `
-					I use Node.js for all server side applications.
+					I use Node.js for all server side applications I create.
+					I am well versed in creating web servers and writing scripts
+					for any scenario.
 				`,
 			},
 			{
 				level: 5,
-				content: "",
 				title: "React",
 				imagePath: "/react.png",
 				experience: SkillExperience.TWO_YEARS,
+				content: `
+					I am highly experienced in making single-page
+					applications with the React framework. I 
+					exclusively use hooks and create highly re-usable
+					and performant DRY components that take full
+					advantage of React's compositionabilty. 
+				`,
 			},
 			{
-				level: 5,
-				content: "",
+				level: 3,
 				title: "Fastify/Express",
 				imagePath: "/fastify.png",
 				experience: SkillExperience.TWO_YEARS,
+				content: `
+					I used Express for ages but recently switched to
+					Fastify as I find it has a better developer experience
+					and generally less buggy.
+				`,
 			},
 			{
-				level: 5,
-				content: "",
+				level: 4,
 				title: "Redux",
 				imagePath: "/redux.png",
 				experience: SkillExperience.TWO_YEARS,
+				content: `
+					I am very familiar with managing application
+					state in Redux. I mostly use Redux Toolkit
+					these days as it makes writing actions,
+					reducers, and selectors and breeze and also
+					assists you in implementing Redux best practises.
+					
+				`,
 			},
 			{
-				level: 5,
-				content: "",
+				initialExpand: true,
+				level: 3,
 				title: "Workbox",
 				imagePath: "/workbox.png",
-				experience: SkillExperience.TWO_YEARS,
+				experience: SkillExperience.SIX_MONTHS,
+				content: `
+					I use WorkBox when making single-page applications
+					and have general knowledge in creating rules and routes
+					for offline application usage. But I have defiently have
+					much more to learn.
+				`,
 			},
 		],
 	},

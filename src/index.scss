@@ -4,9 +4,9 @@
 	--header-height: 110rem;
 	--border-hover-color: #d1d0d0;
 
-	--primary-color: #66bb6a;
-	--primary-color-dark: #338a3e;
-	--primary-color-light: #98ee99;
+	--primary-color: #81c784;
+	--primary-color-dark: #519657;
+	--primary-color-light: #b2fab4;
 
 	--secondary-color: #78909c;
 	--secondary-color-dark: #4b636e;
@@ -27,11 +27,13 @@
 .BodyOne {
 	font-size: 20rem; }
 
-.BodyTwo {
+.BodyTwo,
+.BodyTwoBold {
 	font-size: 16rem; }
 
 .BodyOne,
 .BodyTwo,
 .HeadingOne,
+.BodyTwoBold,
 .HeadingFive {
 	text-align: center; }

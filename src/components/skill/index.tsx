@@ -1,8 +1,9 @@
 import { createBEM } from "@oly_op/bem"
 import Button from "@oly_op/react-button"
-import { createElement, useEffect, useState, VFC } from "react"
+import { createElement, Fragment, useEffect, useState, VFC } from "react"
 
 import { Skill as SkillType } from "../../types"
+import Level from "../level"
 
 import "./index.scss"
 
@@ -12,22 +13,27 @@ const bem =
 const Skill: VFC<SkillPropTypes> = ({
 	skill: {
 		title,
+		level,
 		content,
 		imagePath,
+		experience,
+		initialExpand = false,
 	},
 }) => {
-	const [ expand, setExpand ] = useState(false)
+	const [ expand, setExpand ] = useState(initialExpand)
 
 	const handleExpand =
 		() => setExpand(prevState => !prevState)
 
-	useEffect(() => () => {
-		setExpand(false)
-	}, [])
+	useEffect(() => () => setExpand(false), [])
 
 	return (
 		<div
-			className={bem("", "FlexColumnCenterGapHalf")}
+			className={bem(
+				"",
+				expand ? "Border Rounded" : undefined,
+				"FlexColumnCenterGapHalf",
+			)}
 			style={expand ? { gridColumn: "1 / -1" } : undefined}
 		>
 			<Button
@@ -39,14 +45,30 @@ const Skill: VFC<SkillPropTypes> = ({
 				className={bem("button")}
 				imageClassName={bem("button-image")}
 				rightIconClassName={bem("button-icon")}
+				style={{ borderRadius: expand ? 0 : undefined }}
 				iconStyle={{ transform: expand ? "rotate(180deg)" : undefined }}
 			/>
-			{expand && content && (
-				<div className={bem("content", "PaddingBottom")}>
-					<p className="BodyTwo">
-						{content}
-					</p>
-				</div>
+			{expand && (
+				<Fragment>
+					<div className={bem("details", "FlexRow")}>
+						<Level
+							level={level}
+						/>
+						<div className="FlexColumnGapQuart">
+							<p className="BodyTwoBold">
+								Experience:
+							</p>
+							<p className="BodyTwo">
+								{experience}
+							</p>
+						</div>
+					</div>
+					<div className={bem("content", "PaddingBottom")}>
+						<p className="BodyTwo">
+							{content}
+						</p>
+					</div>
+				</Fragment>
 			)}
 		</div>
 	)

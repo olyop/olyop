@@ -1,13 +1,17 @@
 .Header {
 	gap: var(--space-double);
 	&__title {
-		font-size: 65rem;
+		font-size: 60rem;
 		position: relative;
 		letter-spacing: 5rem;
+		font-family: "Yeseva One";
+		transition: var(--transition-duration) color;
+		&:hover {
+			color: var(--primary-color); }
 		&::after {
 			left: 50%;
 			width: 50%;
-			bottom: -41%;
+			bottom: -37%;
 			content: "";
 			position: absolute;
 			height: var(--border-width);

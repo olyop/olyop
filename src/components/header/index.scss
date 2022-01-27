@@ -1,5 +1,4 @@
 .Header {
-	gap: var(--space-double);
 	&__title {
 		font-size: 60rem;
 		position: relative;
@@ -7,36 +6,44 @@
 		font-family: "Yeseva One";
 		transition: var(--transition-duration) color;
 		&:hover {
-			color: var(--primary-color); }
-		&::after {
-			left: 50%;
-			width: 50%;
-			bottom: -37%;
-			content: "";
-			position: absolute;
-			height: var(--border-width);
-			transform: translateX(-50%);
-			background-color: var(--border-color); } }
+			color: var(--primary-color); } }
+	&__separator {
+		width: 100rem;
+		height: var(--border-width);
+		background-color: var(--border-color); }
 	&__email {
+		cursor: pointer;
+		transition: var(--transition-duration) background-color;
+		&:hover {
+			background-color: var(--hover-color); }
 		&:hover &-copy {
-			visibility: visible; }
-		&-text {
-			font-size: 16rem; }
-		&-link {
-			&:hover {
-				text-decoration: underline; } }
-		&-icon {
+			opacity: 1; }
+		&:hover &-address-underline {
+			transform: scaleX(1);
+			transform-origin: bottom left; }
+		&-button {
 			--button-dimension: 25rem;
 			&-icon {
 				margin-top: 2rem; } }
 		&-email {
-			cursor: unset;
 			&:hover,
 			&:focus {
 				background-color: transparent; } }
+		&-address {
+			position: relative;
+			&-text {
+				font-size: 16rem;
+				user-select: none; }
+			&-underline {
+				left: 0;
+				width: 100%;
+				height: 2rem;
+				bottom: -14rem;
+				position: absolute;
+				transform: scaleX(0);
+				transform-origin: bottom right;
+				background-color: var(--primary-color);
+				transition: transform var(--transition-duration) ease-out; } }
 		&-copy {
-			visibility: hidden; }
-		&-copied {
-			font-size: 13rem;
-			font-weight: 300;
-			font-style: italic; } } }
+			opacity: 0;
+			transition: var(--transition-duration) opacity; } } }

@@ -9,7 +9,7 @@ import { SkillSection as SkillSectionType } from "../../types"
 import "./index.scss"
 
 const bem =
-	createBEM("Skills")
+	createBEM("SkillSection")
 
 const expandStyle: CSSProperties = {
 	height: "unset",
@@ -32,33 +32,31 @@ const SkillSection: VFC<SkillSectionPropTypes> = ({
 		initialExpand = false,
 	},
 }) => {
-	const [ expand, setExpand ] = useState(initialExpand)
+	const [ isExpanded, setIsExpanded ] = useState(initialExpand)
 
 	const handleExpandOpen =
 		() => {
-			if (!expand) setExpand(true)
+			if (!isExpanded) setIsExpanded(true)
 		}
 
 	const handleExpandClose =
-		() => setExpand(false)
+		() => setIsExpanded(false)
 
-	useEffect(() => () => {
-		setExpand(false)
-	}, [])
+	useEffect(() => () => setIsExpanded(false), [])
 
 	return (
 		<div
 			onClick={handleExpandOpen}
-			className={bem("", expand ? "FlexColumn" : "Hover", "Padding Border Rounded")}
-			style={expand ? { borderColor: "var(--border-color)" } : { cursor: "pointer" }}
+			className={bem("", isExpanded ? "FlexColumn" : "Hover", "Padding Border Rounded")}
+			style={isExpanded ? { borderColor: "var(--border-color)" } : { cursor: "pointer" }}
 		>
 			<Button
 				transparent
 				icon="expand_more"
 				className={bem("expand")}
 				iconClassName={bem("expand-icon")}
-				onClick={expand ? handleExpandClose : undefined}
-				iconStyle={{ transform: expand ? "rotate(180deg)" : undefined }}
+				onClick={isExpanded ? handleExpandClose : undefined}
+				iconStyle={{ transform: isExpanded ? "rotate(180deg)" : undefined }}
 			/>
 			<div className="FlexRowGapHalfCenter">
 				{imagePath ? (
@@ -82,7 +80,7 @@ const SkillSection: VFC<SkillSectionPropTypes> = ({
 			</div>
 			<div
 				className={bem("content")}
-				style={expand ? expandStyle : closedStyle}
+				style={isExpanded ? expandStyle : closedStyle}
 			>
 				{skills.map(
 					skill => (

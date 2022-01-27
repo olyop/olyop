@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import { createBEM } from "@oly_op/bem"
 import { createElement, VFC } from "react"
 
@@ -15,11 +16,21 @@ const Level: VFC<SkillLevel> = ({ level }) => (
 		</p>
 		<div className={bem("")}>
 			{Array(level).fill(0).map(
-				() => <div className={bem("icon-filled", "icon")}/>,
+				(_, index) => (
+					<div
+						key={index}
+						className={bem("icon-filled", "icon")}
+					/>
+				),
 			)}
 			{level < 5 && (
 				Array(5 - level).fill(0).map(
-					() => <div className={bem("icon")}/>,
+					(_, index) => (
+						<div
+							key={level + index}
+							className={bem("icon")}
+						/>
+					),
 				)
 			)}
 		</div>

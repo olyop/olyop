@@ -39,37 +39,38 @@ const Header: VFC = () => {
 	}, [isCopied])
 
 	return (
-		<div className={bem("", "FlexColumnCenter")}>
-			<NavLink to="">
+		<div className={bem("", "FlexColumnCenterGapHalf")}>
+			<NavLink to="" className="PaddingBottomHalf">
 				<h1 className={bem("title", "HeadingOne")}>
 					ollie
 				</h1>
 			</NavLink>
-			<div className={bem("email", "FlexRowGapHalf")}>
+			<div className={bem("separator")}/>
+			<address
+				title="Copy Email"
+				onClick={handleEmailCopy}
+				className={bem("email", "PaddingHalf Rounded FlexRowGapHalf")}
+			>
 				<Button
 					transparent
 					icon="email"
-					title="Email"
-					iconClassName={bem("email-icon-icon")}
-					className={bem("email-email", "email-icon")}
+					iconClassName={bem("email-button-icon")}
+					className={bem("email-email", "email-button")}
 				/>
-				<address className={bem("email-text", "BodyTwo")}>
-					<a
-						children={EMAIL}
-						title="Send Email"
-						href={`mailto:${EMAIL}`}
-						className={bem("email-link")}
+				<div className={bem("email-address")}>
+					<p
+						children={isCopied ? "Copied!" : EMAIL}
+						className={bem("email-address-text", "BodyTwo")}
 					/>
-				</address>
+					<div className={bem("email-address-underline")}/>
+				</div>
 				<Button
 					transparent
-					title="Copy"
 					icon="content_copy"
-					onClick={handleEmailCopy}
-					iconClassName={bem("email-icon-icon")}
-					className={bem("email-copy", "email-icon")}
+					iconClassName={bem("email-button-icon")}
+					className={bem("email-copy", "email-button")}
 				/>
-			</div>
+			</address>
 		</div>
 	)
 }

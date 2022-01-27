@@ -3,8 +3,8 @@ import { createElement, VFC } from "react"
 import { Routes, Route } from "react-router-dom"
 
 import HomePage from "./home"
-import CanDoPage from "./can-do"
 import SkillsPage from "./skills"
+import ProjectsPage from "./projects"
 
 import "./index.scss"
 
@@ -24,8 +24,8 @@ const Pages: VFC = () => (
 					element={<SkillsPage/>}
 				/>
 				<Route
-					element={<CanDoPage/>}
-					path="what-i-can-do-for-you"
+					path="projects"
+					element={<ProjectsPage/>}
 				/>
 			</Routes>
 		</div>

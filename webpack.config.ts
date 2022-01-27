@@ -45,39 +45,45 @@ const config: Configuration = {
 		extensions: [".js", ".ts", ".tsx"],
 	},
 	module: {
-		rules: [{
-			test: /\.js$/,
-			enforce: "pre",
-			loader: "source-map-loader",
-		},{
-			test: /\.gql$/,
-			exclude: /node_modules/,
-			loader: "graphql-tag/loader",
-		},{
-			test: /\.tsx?$/,
-			loader: "ts-loader",
-			exclude: /node_modules/,
-			options: {
-				onlyCompileBundledFiles: true,
+		rules: [
+			{
+				test: /\.js$/,
+				enforce: "pre",
+				loader: "source-map-loader",
 			},
-		},{
-			test: /\.css$/,
-			use: [
-				IS_DEV ?
-					"style-loader" :
-					MiniCSSExtractPlugin.loader,
-				"css-loader",
-			],
-		},{
-			test: /\.scss$/,
-			use: [
-				IS_DEV ?
-					"style-loader" :
-					MiniCSSExtractPlugin.loader,
-				"css-loader",
-				"sass-loader",
-			],
-		}],
+			{
+				test: /\.gql$/,
+				exclude: /node_modules/,
+				loader: "graphql-tag/loader",
+			},
+			{
+				test: /\.tsx?$/,
+				loader: "ts-loader",
+				exclude: /node_modules/,
+				options: {
+					onlyCompileBundledFiles: true,
+				},
+			},
+			{
+				test: /\.css$/,
+				use: [
+					IS_DEV ?
+						"style-loader" :
+						MiniCSSExtractPlugin.loader,
+					"css-loader",
+				],
+			},
+			{
+				test: /\.scss$/,
+				use: [
+					IS_DEV ?
+						"style-loader" :
+						MiniCSSExtractPlugin.loader,
+					"css-loader",
+					"sass-loader",
+				],
+			},
+		],
 	},
 	plugins: [
 		new DotenvPlugin(),

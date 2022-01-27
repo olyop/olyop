@@ -15,7 +15,7 @@ const bem =
 
 const SkillsPage: VFC = () => (
 	<Metadata title="Skills">
-		<div className={bem("", "FlexColumn")}>
+		<div className={bem("", "FlexColumnCenter")}>
 			<Heading>
 				Technical Skills
 			</Heading>
@@ -26,11 +26,11 @@ const SkillsPage: VFC = () => (
 				skills={content}
 			/>
 			<BigButton
+				to="/"
 				hideBorder
 				text="Back"
 				title="Go Back"
 				leftIcon="arrow_back"
-				to="/what-i-can-do-for-you"
 			/>
 		</div>
 	</Metadata>

@@ -1,5 +1,5 @@
-.Skills {
-	--icon-dim: 22rem;
+.SkillSection {
+	--icon-dim: 24rem;
 	width: 100%;
 	position: relative;
 	gap: var(--space-one-half);
@@ -16,7 +16,7 @@
 		&-icon {
 			transition: var(--transition-duration) transform; } }
 	&__image {
-		margin-top: -3rem;
+		margin-top: -2rem;
 		width: var(--icon-dim);
 		height: var(--icon-dim); }
 	&__icon {

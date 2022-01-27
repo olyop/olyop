@@ -23,8 +23,8 @@ const CanDoPage: VFC = () => (
 			<BigButton
 				to="/technical-skills"
 				rightIcon="arrow_right_alt"
-				text="See areas of expertise"
-				title="I don't like bragging..."
+				text="See Technical Skills"
+				title="I don't like bragging but..."
 			/>
 			<BigButton
 				to="/"

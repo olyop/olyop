@@ -1,0 +1,24 @@
+.Project {
+	&__image {
+		align-self: stretch; }
+	&__image {
+		height: 250rem;
+		&-img {
+			background-position: top; } }
+	&__link {
+		font-size: 14rem;
+		color: var(--primary-color);
+		&:hover {
+			text-decoration: underline; } }
+	&__description {
+		width: 375rem;
+		&-expand {
+			cursor: pointer;
+			color: var(--primary-color); } }
+	&__button {
+		--button-dimension: 32rem; }
+	&__stack {
+		&-technology {
+			width: 100%;
+			list-style: none;
+			text-align: center; } } }

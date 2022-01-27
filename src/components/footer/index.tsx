@@ -8,7 +8,7 @@ const bem =
 	createBEM("Footer")
 
 const Footer: VFC = () => (
-	<div className={bem("", "FlexColumnCenterGap")}>
+	<div className="FlexColumnCenterGap">
 		<a
 			target="_blank"
 			rel="noreferrer"
@@ -25,8 +25,8 @@ const Footer: VFC = () => (
 			<a
 				target="_blank"
 				rel="noreferrer"
-				className="BodyTwo"
 				children="website source code"
+				className={bem("", "BodyTwo")}
 				href="https://github.com/olyop/olyop"
 			/>
 		</div>

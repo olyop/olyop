@@ -1,19 +1,21 @@
 export enum SkillExperience {
-	ONE_YEAR = "1+ year",
-	TWO_YEARS = "2+ years",
+	FOUR_YEARS = "4+ years",
 	THREE_YEARS = "3+ years",
+	TWO_YEARS = "2+ years",
+	ONE_YEAR = "1+ year",
 	SIX_MONTHS = "6+ months",
-	RECENTLY_LEARNED = "Recently Learnt",
+	THREE_MONTHS = "3+ months",
+	RECENTLY_LEARNED = "Recently Learned",
 }
 
-interface SkillBase {
+interface ExpandBase {
+	initialExpand?: boolean,
+}
+
+interface SkillBase extends ExpandBase {
 	title: string,
 	icon?: string,
-	content: string,
 	imagePath?: string,
-
-	// temporary
-	initialExpand?: boolean,
 }
 
 export interface SkillLevel {
@@ -21,13 +23,26 @@ export interface SkillLevel {
 }
 
 export interface Skill extends SkillBase, SkillLevel {
-	title: string,
-	icon?: string,
-	content: string,
-	imagePath?: string,
+	list?: string[],
+	content?: string,
 	experience: SkillExperience,
 }
 
 export interface SkillSection extends SkillBase {
 	skills: Skill[],
+}
+
+export interface ProjectLink {
+	url: string,
+	text: string,
+}
+
+export interface Project extends ExpandBase {
+	name: string,
+	stack: string[],
+	imageURL: string,
+	link: ProjectLink,
+	description: string[],
+	sourceCodeURL: string,
+	initialStackExpand?: boolean,
 }

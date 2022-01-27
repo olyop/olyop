@@ -12,6 +12,7 @@ const bem =
 
 const Skill: VFC<SkillPropTypes> = ({
 	skill: {
+		list,
 		title,
 		level,
 		content,
@@ -20,35 +21,35 @@ const Skill: VFC<SkillPropTypes> = ({
 		initialExpand = false,
 	},
 }) => {
-	const [ expand, setExpand ] = useState(initialExpand)
+	const [ isExpanded, setIsExpanded ] = useState(initialExpand)
 
-	const handleExpand =
-		() => setExpand(prevState => !prevState)
+	const handleToggleExpand =
+		() => setIsExpanded(prevState => !prevState)
 
-	useEffect(() => () => setExpand(false), [])
+	useEffect(() => () => setIsExpanded(false), [])
 
 	return (
 		<div
 			className={bem(
 				"",
-				expand ? "Border Rounded" : undefined,
+				isExpanded ? "Border Rounded" : undefined,
 				"FlexColumnCenterGapHalf",
 			)}
-			style={expand ? { gridColumn: "1 / -1" } : undefined}
+			style={isExpanded ? { gridColumn: "1 / -1" } : undefined}
 		>
 			<Button
 				transparent
 				text={title}
 				image={imagePath}
-				onClick={handleExpand}
 				rightIcon="expand_more"
 				className={bem("button")}
+				onClick={handleToggleExpand}
 				imageClassName={bem("button-image")}
 				rightIconClassName={bem("button-icon")}
-				style={{ borderRadius: expand ? 0 : undefined }}
-				iconStyle={{ transform: expand ? "rotate(180deg)" : undefined }}
+				style={{ borderRadius: isExpanded ? 0 : undefined }}
+				iconStyle={{ transform: isExpanded ? "rotate(180deg)" : undefined }}
 			/>
-			{expand && (
+			{isExpanded && (
 				<Fragment>
 					<div className={bem("details", "FlexRow")}>
 						<Level
@@ -64,9 +65,22 @@ const Skill: VFC<SkillPropTypes> = ({
 						</div>
 					</div>
 					<div className={bem("content", "PaddingBottom")}>
-						<p className="BodyTwo">
-							{content}
-						</p>
+						{content && (
+							<p className="BodyTwo">
+								{content}
+							</p>
+						)}
+						{list && (
+							<ul>
+								{list.map(
+									item => (
+										<li key={item} className="BodyTwo">
+											{item}
+										</li>
+									),
+								)}
+							</ul>
+						)}
 					</div>
 				</Fragment>
 			)}

@@ -35,12 +35,20 @@ const HomePage: VFC = () => (
 					website with any requirements.
 				</p>
 			</div>
-			<BigButton
-				title="You'll be suprised"
-				rightIcon="arrow_right_alt"
-				to="/what-i-can-do-for-you"
-				text="What I can do for you"
-			/>
+			<div className="FlexColumnCenterGap">
+				<BigButton
+					to="/technical-skills"
+					text="Technical Skills"
+					rightIcon="arrow_right_alt"
+					title="See technical Skills"
+				/>
+				<BigButton
+					to="/projects"
+					text="Projects"
+					title="See projects"
+					leftIcon="assignment"
+				/>
+			</div>
 		</div>
 	</Metadata>
 )

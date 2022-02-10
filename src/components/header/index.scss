@@ -3,7 +3,7 @@
 		font-size: 60rem;
 		position: relative;
 		letter-spacing: 5rem;
-		font-family: "Yeseva One";
+		font-family: "Yeseva One", sans-serif;
 		transition: var(--transition-duration) color;
 		&:hover {
 			color: var(--primary-color); } }
@@ -14,13 +14,6 @@
 	&__email {
 		cursor: pointer;
 		transition: var(--transition-duration) background-color;
-		&:hover {
-			background-color: var(--hover-color); }
-		&:hover &-copy {
-			opacity: 1; }
-		&:hover &-address-underline {
-			transform: scaleX(1);
-			transform-origin: bottom left; }
 		&-button {
 			--button-dimension: 25rem;
 			&-icon {
@@ -46,4 +39,11 @@
 				transition: transform var(--transition-duration) ease-out; } }
 		&-copy {
 			opacity: 0;
-			transition: var(--transition-duration) opacity; } } }
+			transition: var(--transition-duration) opacity; }
+		&:hover {
+			background-color: var(--hover-color); }
+		&:hover &-copy {
+			opacity: 1; }
+		&:hover &-address-underline {
+			transform: scaleX(1);
+			transform-origin: bottom left; } } }

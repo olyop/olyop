@@ -17,8 +17,12 @@ const Footer: VFC = () => (
 			<Button
 				transparent
 				text="GitHub"
-				image="/github.png"
 				className="Border Rounded"
+				image={{
+					src: "/github.png",
+					description: "GitHub",
+					crossOrigin: "anonymous",
+				}}
 			/>
 		</a>
 		<div className="FlexRowCenterGapHalf">

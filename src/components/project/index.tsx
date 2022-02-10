@@ -1,8 +1,7 @@
 import { createBEM } from "@oly_op/bem"
-import Image from "@oly_op/react-image"
 import Button from "@oly_op/react-button"
 import { Metadata } from "@oly_op/react-metadata"
-import { createElement, Fragment, useState, VFC } from "react"
+import { createElement, Fragment, useEffect, useState, VFC } from "react"
 
 import { Project as ProjectType } from "../../types"
 
@@ -19,12 +18,10 @@ const Project: VFC<PropTypes> = ({
 		imageURL,
 		description,
 		sourceCodeURL,
-		initialExpand = false,
-		initialStackExpand = false,
 	},
 }) => {
-	const [ isExpanded, setIsExpanded ] = useState(initialExpand)
-	const [ isStackExpanded, setIsStackExpanded ] = useState(initialStackExpand)
+	const [ isExpanded, setIsExpanded ] = useState(false)
+	const [ isStackExpanded, setIsStackExpanded ] = useState(false)
 
 	const handleExpandToggle =
 		() => setIsExpanded(prevState => !prevState)
@@ -32,13 +29,18 @@ const Project: VFC<PropTypes> = ({
 	const handleStackExpandToggle =
 		() => setIsStackExpanded(prevState => !prevState)
 
+	useEffect(() => () => {
+		setIsExpanded(false)
+		setIsStackExpanded(false)
+	}, [])
+
 	return (
 		<Metadata title="Projects">
 			<div className="Padding FlexColumnCenterGap Border Rounded">
-				<Image
-					url={imageURL}
+				<img
+					src={imageURL}
+					alt="Musicloud"
 					className={bem("image", "Border Rounded")}
-					imgClassName={bem("image-img", "Rounded")}
 				/>
 				<div className="FlexColumnGapQuart">
 					<h3 className="HeadingFive">

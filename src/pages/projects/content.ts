@@ -4,7 +4,6 @@ import { Project } from "../../types"
 const content: Project[] = [
 	{
 		name: "Musicloud",
-		initialExpand: false,
 		imageURL: "/musicloud.png",
 		sourceCodeURL: "https://github.com/olyop/music-app",
 		link: {
@@ -30,21 +29,26 @@ const content: Project[] = [
 		description: [
 			`Musicloud is a fully featured music streaming application
 			that I built from the ground up.`,
+
 			`The app allows the user to play, queue, shuffle, search,
 			and organise their music anytime and anywhere.
-			Users can create thier own libraries,
-			follow artists, create playlists, personalise settings
-			and download save thier music for offline.`,
-			`The app is very similiar to other music streaming services
+			Users can create their own libraries,
+			follow artists, create playlists, personalise settings,
+			download, and save their music for offline use.`,
+
+			`The app is very similiar to other music streaming services,
 			but has an emphasis on the correct display and tagging of the music.`,
+
 			`I built this app across the entire stack, from the
 			back-end, to the front-end, to the database,
 			all the way to deploying and scaling it in the cloud`,
-			`I built this app because I wanted an exercise for myself in
-			practising implementing new technologies that I have learnt over time.`,
-			`By doing this, I gained a great deal of
-			experience in making full-stack applications
-			this includes designing, building, mantaining,
+
+			`I built this app because I wanted to practice
+			implementing new technologies that I have learnt over time.`,
+
+			`By doing this, I have gained experience and knowledge
+			in making full-stack applications, including the process of
+			designing, building, maintaining,
 			and implementing new ideas and technologies.`,
 		],
 	},

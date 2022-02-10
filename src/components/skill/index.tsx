@@ -2,8 +2,8 @@ import { createBEM } from "@oly_op/bem"
 import Button from "@oly_op/react-button"
 import { createElement, Fragment, useEffect, useState, VFC } from "react"
 
-import { Skill as SkillType } from "../../types"
 import Level from "../level"
+import { Skill as SkillType } from "../../types"
 
 import "./index.scss"
 
@@ -12,16 +12,14 @@ const bem =
 
 const Skill: VFC<SkillPropTypes> = ({
 	skill: {
-		list,
 		title,
 		level,
 		content,
 		imagePath,
 		experience,
-		initialExpand = false,
 	},
 }) => {
-	const [ isExpanded, setIsExpanded ] = useState(initialExpand)
+	const [ isExpanded, setIsExpanded ] = useState(false)
 
 	const handleToggleExpand =
 		() => setIsExpanded(prevState => !prevState)
@@ -40,13 +38,13 @@ const Skill: VFC<SkillPropTypes> = ({
 			<Button
 				transparent
 				text={title}
-				image={imagePath}
 				rightIcon="expand_more"
 				className={bem("button")}
 				onClick={handleToggleExpand}
 				imageClassName={bem("button-image")}
 				rightIconClassName={bem("button-icon")}
 				style={{ borderRadius: isExpanded ? 0 : undefined }}
+				image={imagePath ? { description: "", src: imagePath } : undefined}
 				iconStyle={{ transform: isExpanded ? "rotate(180deg)" : undefined }}
 			/>
 			{isExpanded && (
@@ -69,17 +67,6 @@ const Skill: VFC<SkillPropTypes> = ({
 							<p className="BodyTwo">
 								{content}
 							</p>
-						)}
-						{list && (
-							<ul>
-								{list.map(
-									item => (
-										<li key={item} className="BodyTwo">
-											{item}
-										</li>
-									),
-								)}
-							</ul>
 						)}
 					</div>
 				</Fragment>

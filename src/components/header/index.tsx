@@ -14,6 +14,9 @@ import "./index.scss"
 const bem =
 	createBEM("Header")
 
+const TITLE =
+	"oliver"
+
 const EMAIL =
 	"oliver.plummer@outlook.com"
 
@@ -42,7 +45,7 @@ const Header: VFC = () => {
 		<div className={bem("", "FlexColumnCenterGapHalf")}>
 			<NavLink to="" className="PaddingBottomHalf">
 				<h1 className={bem("title", "HeadingOne")}>
-					ollie
+					{TITLE}
 				</h1>
 			</NavLink>
 			<div className={bem("separator")}/>

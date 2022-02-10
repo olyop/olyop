@@ -29,10 +29,9 @@ const SkillSection: VFC<SkillSectionPropTypes> = ({
 		title,
 		skills,
 		imagePath,
-		initialExpand = false,
 	},
 }) => {
-	const [ isExpanded, setIsExpanded ] = useState(initialExpand)
+	const [ isExpanded, setIsExpanded ] = useState(false)
 
 	const handleExpandOpen =
 		() => {

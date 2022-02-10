@@ -1,8 +1,8 @@
 import {
 	S3Client,
 	PutObjectCommand,
-	ListObjectsV2Command,
-	DeleteObjectsCommand,
+	// ListObjectsV2Command,
+	// DeleteObjectsCommand,
 } from "@aws-sdk/client-s3"
 
 import mime from "mime"
@@ -21,26 +21,26 @@ const client =
 const main =
 	async () => {
 		try {
-			const listObjectsOutput =
-				await client.send(
-					new ListObjectsV2Command({
-						Bucket,
-					}),
-				)
+			// const listObjectsOutput =
+			// 	await client.send(
+			// 		new ListObjectsV2Command({
+			// 			Bucket,
+			// 		}),
+			// 	)
 
-			if (listObjectsOutput.Contents) {
-				await client.send(
-					new DeleteObjectsCommand({
-						Bucket,
-						Delete: {
-							Objects:
-								listObjectsOutput.Contents.map(
-									({ Key }) => ({ Key }),
-								),
-						},
-					}),
-				)
-			}
+			// if (listObjectsOutput.Contents) {
+			// 	await client.send(
+			// 		new DeleteObjectsCommand({
+			// 			Bucket,
+			// 			Delete: {
+			// 				Objects:
+			// 					listObjectsOutput.Contents.map(
+			// 						({ Key }) => ({ Key }),
+			// 					),
+			// 			},
+			// 		}),
+			// 	)
+			// }
 
 			const files =
 				await fs.readdir(BUILD_PATH)

@@ -1,4 +1,28 @@
 .Footer {
-	font-size: 12rem;
-	&:hover {
-		text-decoration: underline; } }
+	&__github {
+		&-link {
+			--button-dimension: 32rem;
+			border-radius: 6rem;
+			background-color: #f6f8fa;
+			border: 1rem solid rgb(27 31 36 / 15%);
+			transition: var(--transition-duration) border-color, background-color; }
+		&:hover &-link {
+			background-color: #f3f4f6;
+			border-color: rgb(27 31 36 / 15%); } }
+	&__résumé {
+		--button-dimension: 32rem;
+		&-icon-text {
+			margin-top: 3rem; } }
+	&__source-code {
+		--button-dimension: 30rem;
+		&:hover {
+			background-color: transparent !important; }
+		&-text {
+			text-transform: lowercase; }
+		&-left-icon {
+			margin-top: 2rem;
+			margin-right: 1rem; }
+		&-right-icon {
+			--dim: 16rem;
+			margin-top: 1rem;
+			margin-left: 1rem; } } }

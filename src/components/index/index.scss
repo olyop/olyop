@@ -1,7 +1,17 @@
 .Index {
-	padding: 0 var(--space-triple);
+	position: relative;
+	padding: 0 calc(var(--button-dimension) + var(--space));
 	@media (max-width: 800px) {
 		padding: var(--space-double); }
+	&__settings {
+		position: absolute;
+		top: var(--space-half);
+		right: var(--space-half);
+		@media (max-width: 800px) {
+			--length: calc(var(--space-double) + (60rem / 2));
+			right: var(--length);
+			top: calc(var(--length) + 3rem);
+			transform: translate(50%, -50%); } }
 	&__inner {
 		height: 100%;
 		gap: var(--space-triple);

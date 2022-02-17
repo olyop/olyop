@@ -1,4 +1,6 @@
 import { createBEM } from "@oly_op/bem"
+import Button from "@oly_op/react-button"
+import { NavLink } from "react-router-dom"
 import { createElement, VFC } from "react"
 
 import Header from "../header"
@@ -11,6 +13,12 @@ const bem = createBEM("Index")
 
 const Index: VFC = () => (
 	<div className={bem("", "FullWidthAndHeight")}>
+		<NavLink to="/settings" className={bem("settings")}>
+			<Button
+				transparent
+				icon="settings"
+			/>
+		</NavLink>
 		<div className={bem("inner", "FlexColumnCenter BorderLeft BorderRight")}>
 			<Header/>
 			<Pages/>

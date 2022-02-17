@@ -11,39 +11,38 @@
 		width: 100rem;
 		height: var(--border-width);
 		background-color: var(--border-color); }
-	&__email {
-		cursor: pointer;
-		transition: var(--transition-duration) background-color;
-		&-button {
-			--button-dimension: 25rem;
-			&-icon {
-				margin-top: 2rem; } }
+	&__address {
+		&-text {
+			font-size: 16rem;
+			font-weight: 400;
+			font-style: italic;
+			letter-spacing: 0.25rem;
+			text-transform: lowercase; }
 		&-email {
-			&:hover,
-			&:focus {
-				background-color: transparent; } }
-		&-address {
-			position: relative;
+			--button-dimension: 45rem;
+			gap: var(--space-three-quart);
+			&-icon {
+				--dim: 17rem;
+				&-right {
+					opacity: 0;
+					margin-left: 0;
+					transition: var(--transition-duration) opacity; } }
 			&-text {
-				font-size: 16rem;
-				user-select: none; }
-			&-underline {
-				left: 0;
-				width: 100%;
-				height: 2rem;
-				bottom: -14rem;
-				position: absolute;
-				transform: scaleX(0);
-				transform-origin: bottom right;
-				background-color: var(--primary-color);
-				transition: transform var(--transition-duration) ease-out; } }
-		&-copy {
-			opacity: 0;
-			transition: var(--transition-duration) opacity; }
-		&:hover {
-			background-color: var(--hover-color); }
-		&:hover &-copy {
-			opacity: 1; }
-		&:hover &-address-underline {
-			transform: scaleX(1);
-			transform-origin: bottom left; } } }
+				position: relative;
+				&-copied {
+					text-transform: capitalize; }
+				&-underline {
+					left: 0;
+					width: 100%;
+					height: 2rem;
+					bottom: -14rem;
+					position: absolute;
+					transform: scaleX(0);
+					transform-origin: bottom right;
+					background-color: var(--primary-color);
+					transition: transform var(--transition-duration) ease-out; } }
+			&:hover &-icon-right {
+				opacity: 1; }
+			&:hover &-text-underline {
+				transform: scaleX(1);
+				transform-origin: bottom left; } } } }

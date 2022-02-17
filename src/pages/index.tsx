@@ -1,10 +1,11 @@
-import { createBEM } from "@oly_op/bem/build"
+import { createBEM } from "@oly_op/bem"
 import { createElement, VFC } from "react"
 import { Routes, Route } from "react-router-dom"
 
 import HomePage from "./home"
 import SkillsPage from "./skills"
 import ProjectsPage from "./projects"
+import SettingsPage from "./settings"
 
 import "./index.scss"
 
@@ -13,7 +14,7 @@ const bem =
 
 const Pages: VFC = () => (
 	<div className={bem("")}>
-		<div className={bem("inner")}>
+		<div className={bem("inner", "FullWidthAndHeight")}>
 			<Routes>
 				<Route
 					path=""
@@ -26,6 +27,10 @@ const Pages: VFC = () => (
 				<Route
 					path="projects"
 					element={<ProjectsPage/>}
+				/>
+				<Route
+					path="settings"
+					element={<SettingsPage/>}
 				/>
 			</Routes>
 		</div>

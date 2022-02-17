@@ -277,7 +277,7 @@ const content: SkillSection[] = [{
 		experience: SkillExperience.ONE_YEAR,
 		content: ``,
 	},{
-		level: 2,
+		level: 3,
 		title: "Photoshop",
 		imagePath: "/photoshop.png",
 		experience: SkillExperience.TWO_YEARS,

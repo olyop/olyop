@@ -1,0 +1,7 @@
+.SettingsPage {
+	&__select {
+		cursor: pointer;
+		background-color: var(--background-color-1);
+		transition: var(--transition-duration) background-color;
+		&:hover {
+			background-color: var(--background-color-2); } } }

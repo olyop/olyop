@@ -1,11 +1,10 @@
 import { createBEM } from "@oly_op/bem"
 import Button from "@oly_op/react-button"
 import { NavLink } from "react-router-dom"
-import { createElement, useEffect, useState, VFC } from "react"
+import { createElement, Fragment, useEffect, useState, VFC } from "react"
 
 import "../../fonts.scss"
 import "@oly_op/css-utilities/index.css"
-import "@oly_op/react-image/build/index.css"
 import "@oly_op/react-button/build/index.css"
 import "../../index.scss"
 
@@ -19,6 +18,9 @@ const TITLE =
 
 const EMAIL =
 	"oliver.plummer@outlook.com"
+
+const PHONE_NUMBER =
+	"(+61) 435 664 195"
 
 const Header: VFC = () => {
 	const [ isCopied, setIsCopied ] =
@@ -49,29 +51,37 @@ const Header: VFC = () => {
 				</h1>
 			</NavLink>
 			<div className={bem("separator")}/>
-			<address
-				title="Copy Email"
-				onClick={handleEmailCopy}
-				className={bem("email", "PaddingHalf Rounded FlexRowGapHalf")}
-			>
+			<address className="FlexColumnCenter">
 				<Button
 					transparent
 					icon="email"
-					iconClassName={bem("email-button-icon")}
-					className={bem("email-email", "email-button")}
+					rightIcon="content_copy"
+					onClick={handleEmailCopy}
+					className={bem("address-email")}
+					iconClassName={bem("address-email-icon")}
+					rightIconClassName={bem("address-email-icon-right")}
+					textClassName={bem(
+						isCopied && "address-email-text-copied",
+						"address-email-text",
+						"address-text",
+					)}
+					text={(
+						<Fragment>
+							{isCopied ? "Copied!" : EMAIL}
+							<div className={bem("address-email-text-underline")}/>
+						</Fragment>
+					)}
 				/>
-				<div className={bem("email-address")}>
-					<p
-						children={isCopied ? "Copied!" : EMAIL}
-						className={bem("email-address-text", "BodyTwo")}
-					/>
-					<div className={bem("email-address-underline")}/>
-				</div>
-				<Button
-					transparent
-					icon="content_copy"
-					iconClassName={bem("email-button-icon")}
-					className={bem("email-copy", "email-button")}
+				<a
+					href={`tel:${PHONE_NUMBER}`}
+					children={(
+						<Button
+							icon="phone"
+							transparent
+							text={PHONE_NUMBER}
+							textClassName={bem("address-text")}
+						/>
+					)}
 				/>
 			</address>
 		</div>

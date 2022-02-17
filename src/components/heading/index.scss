@@ -1,2 +1,4 @@
 .Heading {
-	text-decoration: underline; }
+	margin-left: calc((var(--button-dimension) + var(--space-half)) * -1);
+	&__text {
+		text-decoration: underline; } }

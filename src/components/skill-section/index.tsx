@@ -1,7 +1,6 @@
 import { createBEM } from "@oly_op/bem"
-import Image from "@oly_op/react-image"
 import Button from "@oly_op/react-button"
-import { createElement, CSSProperties, useEffect, useState, VFC } from "react"
+import { createElement, CSSProperties, useState, VFC } from "react"
 
 import Skill from "../skill"
 import { SkillSection as SkillSectionType } from "../../types"
@@ -41,8 +40,6 @@ const SkillSection: VFC<SkillSectionPropTypes> = ({
 	const handleExpandClose =
 		() => setIsExpanded(false)
 
-	useEffect(() => () => setIsExpanded(false), [])
-
 	return (
 		<div
 			onClick={handleExpandOpen}
@@ -59,9 +56,10 @@ const SkillSection: VFC<SkillSectionPropTypes> = ({
 			/>
 			<div className="FlexRowGapHalfCenter">
 				{imagePath ? (
-					<Image
+					<img
+						alt={title}
 						title={title}
-						url={imagePath}
+						src={imagePath}
 						className={bem("image")}
 					/>
 				) : (

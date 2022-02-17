@@ -7,17 +7,21 @@ export enum SkillExperience {
 	THREE_MONTHS = "3+ months",
 	RECENTLY_LEARNED = "Recently Learned",
 }
+
 interface SkillBase {
 	title: string,
 	icon?: string,
 	imagePath?: string,
 }
 
-export interface SkillLevel {
-	level: 1 | 2 | 3 | 4 | 5,
+export type SkillLevel =
+	1 | 2 | 3 | 4 | 5
+
+export interface SkillLevelOptions {
+	level: SkillLevel,
 }
 
-export interface Skill extends SkillBase, SkillLevel {
+export interface Skill extends SkillBase, SkillLevelOptions {
 	content?: string,
 	experience: SkillExperience,
 }
@@ -38,4 +42,10 @@ export interface Project {
 	link: ProjectLink,
 	description: string[],
 	sourceCodeURL: string,
+}
+
+export enum SettingsTransitions {
+	ON = "ON",
+	OFF = "OFF",
+	SYSTEM = "SYSTEM",
 }

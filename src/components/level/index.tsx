@@ -2,14 +2,14 @@
 import { createBEM } from "@oly_op/bem"
 import { createElement, VFC } from "react"
 
-import { SkillLevel } from "../../types"
+import { SkillLevelOptions } from "../../types"
 
 import "./index.scss"
 
 const bem =
 	createBEM("Level")
 
-const Level: VFC<SkillLevel> = ({ level }) => (
+const Level: VFC<SkillLevelOptions> = ({ level }) => (
 	<div className="FlexColumnGapQuart">
 		<p className="BodyTwoBold">
 			Level:

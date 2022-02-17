@@ -1,10 +1,10 @@
 import { createBEM } from "@oly_op/bem"
+import Button from "@oly_op/react-button"
 import { createElement, VFC } from "react"
 import { Metadata } from "@oly_op/react-metadata"
 
-import BigButton from "../../components/big-button"
-
 import "./index.scss"
+import { NavLink } from "react-router-dom"
 
 const bem =
 	createBEM("Home")
@@ -36,18 +36,24 @@ const HomePage: VFC = () => (
 				</p>
 			</div>
 			<div className="FlexColumnCenterGap">
-				<BigButton
-					to="/technical-skills"
-					text="Technical Skills"
-					rightIcon="arrow_right_alt"
-					title="See technical Skills"
-				/>
-				<BigButton
-					to="/projects"
-					text="Projects"
-					title="See projects"
-					leftIcon="assignment"
-				/>
+				<NavLink to="/technical-skills">
+					<Button
+						transparent
+						text="Technical Skills"
+						rightIcon="arrow_right_alt"
+						title="See technical Skills"
+						className={bem("button", "Border")}
+					/>
+				</NavLink>
+				<NavLink to="/projects">
+					<Button
+						transparent
+						text="Projects"
+						icon="assignment"
+						title="See projects"
+						className={bem("button", "Border")}
+					/>
+				</NavLink>
 			</div>
 		</div>
 	</Metadata>

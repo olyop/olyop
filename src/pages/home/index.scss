@@ -5,4 +5,6 @@
 	gap: var(--space-triple);
 	&__title {
 		font-size: 28rem;
-		font-weight: 500; } }
+		font-weight: 500; }
+	&__button {
+		--button-dimension: 42rem; } }

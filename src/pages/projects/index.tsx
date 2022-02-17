@@ -4,7 +4,6 @@ import { createElement, VFC } from "react"
 import content from "./content"
 import Heading from "../../components/heading"
 import Project from "../../components/project"
-import BigButton from "../../components/big-button"
 
 import "./index.scss"
 
@@ -12,7 +11,7 @@ const bem =
 	createBEM("ProjectsPage")
 
 const ProjectsPage: VFC = () => (
-	<div className={bem("", "FlexColumnCenter")}>
+	<div className={bem("")}>
 		<Heading>
 			Projects
 		</Heading>
@@ -26,13 +25,6 @@ const ProjectsPage: VFC = () => (
 				),
 			)}
 		</div>
-		<BigButton
-			to="/"
-			hideBorder
-			text="Back"
-			title="Go Back"
-			leftIcon="arrow_back"
-		/>
 	</div>
 )
 

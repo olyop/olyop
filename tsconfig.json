@@ -2,19 +2,27 @@
 	"extends": "@oly_op/tsconfig/tsconfig.json",
 	"compilerOptions": {
 		"jsx": "react",
-		"jsxFactory": "createElement"
+		"jsxFactory": "createElement",
+		"baseUrl": "./",
+		"paths": { "*": ["types/*"] }
 	},
 	"ts-node": {
+		"files": true,
 		"compilerOptions": {
 			"target": "ES6",
-			"module": "CommonJS"
+			"module": "CommonJS",
+			"baseUrl": "./",
+			"paths": { "*": ["types/*"] }
 		},
 		"moduleTypes": {
 			"scripts/*": "cjs",
 			"webpack.config.ts": "cjs"
 		}
 	},
-	"exclude": [
-		"build"
+	"include": [
+		"src",
+		"types",
+		"scripts",
+		"webpack.config.ts"
 	]
 }

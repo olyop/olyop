@@ -1,11 +1,11 @@
-import { createElement, VFC } from "react"
+import { createElement, FC } from "react"
 import { Metadata } from "@oly_op/react-metadata"
 
 import content from "./content"
 import Skills from "../../components/skills"
 import Heading from "../../components/heading"
 
-const SkillsPage: VFC = () => (
+const SkillsPage: FC = () => (
 	<Metadata title="Skills">
 		<Heading>
 			Technical Skills

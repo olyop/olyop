@@ -1,6 +1,6 @@
 import { createBEM } from "@oly_op/bem"
 import Button from "@oly_op/react-button"
-import { createElement, Fragment, useState, VFC } from "react"
+import { createElement, Fragment, useState, FC } from "react"
 
 import Level from "../level"
 import { Skill as SkillType } from "../../types"
@@ -10,7 +10,7 @@ import "./index.scss"
 const bem =
 	createBEM("Skill")
 
-const Skill: VFC<SkillPropTypes> = ({
+const Skill: FC<SkillPropTypes> = ({
 	skill: {
 		title,
 		level,

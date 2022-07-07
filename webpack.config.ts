@@ -1,11 +1,13 @@
 import path from "path"
-import { Configuration } from "webpack"
+import { Configuration, DefinePlugin } from "webpack"
 import DotenvPlugin from "dotenv-webpack"
 import CopyWebpackPlugin from "copy-webpack-plugin"
 import HTMLWebpackPlugin from "html-webpack-plugin"
 import MiniCSSExtractPlugin from "mini-css-extract-plugin"
 import CSSMinimizerPlugin from "css-minimizer-webpack-plugin"
 import { Configuration as DevServerConfiguration } from "webpack-dev-server"
+
+import packageDotJSON from "./package.json"
 
 const IS_DEV =
 	process.env.NODE_ENV === "development"
@@ -87,6 +89,9 @@ const config: Configuration = {
 	},
 	plugins: [
 		new DotenvPlugin(),
+		new DefinePlugin({
+			VERSION: JSON.stringify(packageDotJSON.version),
+		}),
 		new HTMLWebpackPlugin({
 			minify: false,
 			title: "olyop",

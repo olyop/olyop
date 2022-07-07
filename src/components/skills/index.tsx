@@ -1,11 +1,11 @@
-import { createElement, VFC } from "react"
+import { createElement, FC } from "react"
 
 import SkillSection from "../skill-section"
 import { SkillSection as SkillSectionType } from "../../types"
 
 import "./index.scss"
 
-const Skills: VFC<SkillsPropTypes> = ({ skills }) => (
+const Skills: FC<SkillsPropTypes> = ({ skills }) => (
 	<div className="Skills FlexColumnGap">
 		{skills.map(
 			skill => (

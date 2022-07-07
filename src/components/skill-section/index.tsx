@@ -1,6 +1,6 @@
 import { createBEM } from "@oly_op/bem"
 import Button from "@oly_op/react-button"
-import { createElement, CSSProperties, useState, VFC } from "react"
+import { createElement, CSSProperties, useState, FC } from "react"
 
 import Skill from "../skill"
 import { SkillSection as SkillSectionType } from "../../types"
@@ -22,7 +22,7 @@ const closedStyle: CSSProperties = {
 	transform: "scaleY(0)",
 }
 
-const SkillSection: VFC<SkillSectionPropTypes> = ({
+const SkillSection: FC<SkillSectionPropTypes> = ({
 	skill: {
 		icon,
 		title,
@@ -41,7 +41,8 @@ const SkillSection: VFC<SkillSectionPropTypes> = ({
 		() => setIsExpanded(false)
 
 	return (
-		<div
+		<button
+			type="button"
 			onClick={handleExpandOpen}
 			className={bem("", isExpanded ? "FlexColumn" : "Hover", "Padding Border Rounded")}
 			style={isExpanded ? { borderColor: "var(--border-color)" } : { cursor: "pointer" }}
@@ -88,7 +89,7 @@ const SkillSection: VFC<SkillSectionPropTypes> = ({
 					),
 				)}
 			</div>
-		</div>
+		</button>
 	)
 }
 

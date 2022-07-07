@@ -1,15 +1,20 @@
-import { render } from "react-dom"
-import { createElement } from "react"
+import { createElement, StrictMode } from "react"
+import { createRoot } from "react-dom/client"
 import { BrowserRouter } from "react-router-dom"
 
 import Index from "./components/index"
 import Metadata from "./components/metadata"
 
-render(
-	<Metadata>
-		<BrowserRouter>
-			<Index/>
-		</BrowserRouter>
-	</Metadata>,
-	document.getElementById("Root"),
+const root =
+	// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+	createRoot(document.getElementById("Root")!)
+
+root.render(
+	<StrictMode>
+		<Metadata>
+			<BrowserRouter>
+				<Index/>
+			</BrowserRouter>
+		</Metadata>
+	</StrictMode>,
 )

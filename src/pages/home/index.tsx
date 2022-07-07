@@ -1,15 +1,15 @@
 import { createBEM } from "@oly_op/bem"
 import Button from "@oly_op/react-button"
-import { createElement, VFC } from "react"
+import { NavLink } from "react-router-dom"
+import { createElement, FC } from "react"
 import { Metadata } from "@oly_op/react-metadata"
 
 import "./index.scss"
-import { NavLink } from "react-router-dom"
 
 const bem =
 	createBEM("Home")
 
-const HomePage: VFC = () => (
+const HomePage: FC = () => (
 	<Metadata>
 		<div className={bem("", "FlexColumn")}>
 			<h2 className={bem("title", "HeadingFive")}>

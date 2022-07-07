@@ -1,7 +1,7 @@
 import { createBEM } from "@oly_op/bem"
 import Button from "@oly_op/react-button"
 import { Metadata } from "@oly_op/react-metadata"
-import { createElement, Fragment, useEffect, useState, VFC } from "react"
+import { createElement, Fragment, useEffect, useState, FC } from "react"
 
 import { Project as ProjectType } from "../../types"
 
@@ -10,7 +10,7 @@ import "./index.scss"
 const bem =
 	createBEM("Project")
 
-const Project: VFC<PropTypes> = ({
+const Project: FC<PropTypes> = ({
 	project: {
 		link,
 		name,
@@ -20,8 +20,11 @@ const Project: VFC<PropTypes> = ({
 		sourceCodeURL,
 	},
 }) => {
-	const [ isExpanded, setIsExpanded ] = useState(false)
-	const [ isStackExpanded, setIsStackExpanded ] = useState(false)
+	const [ isExpanded, setIsExpanded ] =
+		useState(false)
+
+	const [ isStackExpanded, setIsStackExpanded ] =
+		useState(false)
 
 	const handleExpandToggle =
 		() => setIsExpanded(prevState => !prevState)
@@ -77,7 +80,8 @@ const Project: VFC<PropTypes> = ({
 									<Fragment>
 										{paragraph}
 										<br/>
-										<span
+										<button
+											type="button"
 											onClick={handleExpandToggle}
 											className={bem("description-expand")}
 											children={isExpanded ? "Show less" : "Show more"}

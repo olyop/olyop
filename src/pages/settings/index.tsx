@@ -1,5 +1,5 @@
 import { createBEM } from "@oly_op/bem"
-import { ChangeEventHandler, createElement, useEffect, useState, VFC } from "react"
+import { ChangeEventHandler, createElement, useEffect, useState, FC } from "react"
 
 import Heading from "../../components/heading"
 import { SettingsTransitions } from "../../types"
@@ -33,7 +33,7 @@ const normalizeStringCase =
 const bem =
 	createBEM("SettingsPage")
 
-const SettingsPage: VFC = () => {
+const SettingsPage: FC = () => {
 	const [ transitions, setTransitions ] =
 		useState(SettingsTransitions.SYSTEM)
 
@@ -51,7 +51,7 @@ const SettingsPage: VFC = () => {
 	return (
 		<div>
 			<Heading>
-				Settings
+				Settings (W.I.P.)
 			</Heading>
 			<div className="FlexColumnCenterGap">
 				<div className="FlexColumnCenterGapQuart">
@@ -70,7 +70,7 @@ const SettingsPage: VFC = () => {
 									value={setting}
 									children={normalizeStringCase(setting)}
 								/>
-							)
+							),
 						)}
 					</select>
 				</div>
@@ -90,8 +90,9 @@ const SettingsPage: VFC = () => {
 						/>
 					</select>
 				</div>
-				<p className="BodyOne">
-					W.I.P.
+				<p className="BodyTwo">
+					v
+					{VERSION}
 				</p>
 			</div>
 		</div>

@@ -1,71 +1,77 @@
 import {
-	S3Client,
+	S3,
 	PutObjectCommand,
-	// ListObjectsV2Command,
-	// DeleteObjectsCommand,
+	ListObjectsV2Command,
+	DeleteObjectsCommand,
 } from "@aws-sdk/client-s3"
 
 import mime from "mime"
-import path from "path"
-import fs from "fs/promises"
+import path from "node:path"
+import fs from "node:fs/promises"
 
-const BUILD_PATH =
-	path.resolve(process.cwd(), "build")
+const main = async () => {
+	const BUILD_PATH =
+		path.resolve(process.cwd(), "build")
 
-const Bucket =
-	process.env.AWS_S3_BUCKET_NAME
+	const Bucket =
+		process.env.AWS_S3_BUCKET_NAME
 
-const client =
-	new S3Client({})
+	const s3 =
+		new S3({
+			region: process.env.AWS_REGION,
+			credentials: {
+				accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+				secretAccessKey: process.env.AWS_ACCESS_KEY_SECRET,
+			},
+		})
 
-const main =
-	async () => {
-		try {
-			// const listObjectsOutput =
-			// 	await client.send(
-			// 		new ListObjectsV2Command({
-			// 			Bucket,
-			// 		}),
-			// 	)
+	console.log("Getting current objects")
 
-			// if (listObjectsOutput.Contents) {
-			// 	await client.send(
-			// 		new DeleteObjectsCommand({
-			// 			Bucket,
-			// 			Delete: {
-			// 				Objects:
-			// 					listObjectsOutput.Contents.map(
-			// 						({ Key }) => ({ Key }),
-			// 					),
-			// 			},
-			// 		}),
-			// 	)
-			// }
+	const listObjectsOutput =
+		await s3.send(
+			new ListObjectsV2Command({
+				Bucket,
+			}),
+		)
 
-			const files =
-				await fs.readdir(BUILD_PATH)
+	if (listObjectsOutput.Contents) {
+		console.log("Deleting current objects")
 
-			for (const Key of files) {
-				const filePath =
-					path.join(BUILD_PATH, Key)
-				const Body =
-					await fs.readFile(filePath)
-				const mimeType =
-					mime.getType(filePath)
-				if (mimeType) {
-					await client.send(
-						new PutObjectCommand({
-							Key,
-							Body,
-							Bucket,
-							ContentType: mimeType,
-						}),
-					)
-				}
-			}
-		} catch (error) {
-			console.error(error)
-		}
+		await s3.send(
+			new DeleteObjectsCommand({
+				Bucket,
+				Delete: {
+					Objects:
+						listObjectsOutput.Contents
+							.map(({ Key }) => ({ Key })),
+				},
+			}),
+		)
 	}
 
-void main()
+	console.log("Reading build files")
+
+	const files =
+		await fs.readdir(BUILD_PATH)
+
+	console.log("Uploading build files")
+
+	for (const Key of files) {
+		const filePath = path.join(BUILD_PATH, Key)
+		console.log(`Uploading file:${filePath}`)
+		const Body = await fs.readFile(filePath)
+		const mimeType = mime.getType(filePath)
+		if (mimeType) {
+			await s3.send(
+				new PutObjectCommand({
+					Key,
+					Body,
+					Bucket,
+					ContentType: mimeType,
+				}),
+			)
+		}
+	}
+}
+
+main().catch(console.error)

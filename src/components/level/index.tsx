@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import { createBEM } from "@oly_op/bem"
-import { createElement, VFC } from "react"
+import { createElement, FC } from "react"
 
 import { SkillLevelOptions } from "../../types"
 
@@ -9,7 +9,7 @@ import "./index.scss"
 const bem =
 	createBEM("Level")
 
-const Level: VFC<SkillLevelOptions> = ({ level }) => (
+const Level: FC<SkillLevelOptions> = ({ level }) => (
 	<div className="FlexColumnGapQuart">
 		<p className="BodyTwoBold">
 			Level:

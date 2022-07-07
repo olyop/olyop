@@ -1,7 +1,7 @@
 import { createBEM } from "@oly_op/bem"
 import Button from "@oly_op/react-button"
 import { NavLink } from "react-router-dom"
-import { createElement, Fragment, useEffect, useState, VFC } from "react"
+import { createElement, Fragment, useEffect, useState, FC } from "react"
 
 import "../../fonts.scss"
 import "@oly_op/css-utilities/index.css"
@@ -22,13 +22,13 @@ const EMAIL =
 const PHONE_NUMBER =
 	"(+61) 435 664 195"
 
-const Header: VFC = () => {
+const Header: FC = () => {
 	const [ isCopied, setIsCopied ] =
 		useState(false)
 
 	const handleEmailCopy =
-		async () => {
-			await navigator.clipboard.writeText(EMAIL)
+		() => {
+			void navigator.clipboard.writeText(EMAIL)
 			setIsCopied(true)
 		}
 

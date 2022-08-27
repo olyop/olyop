@@ -1,3 +1,6 @@
+type TrueFalse =
+	"true" | "false"
+
 type NodeENV =
 	"development" | "production"
 
@@ -7,6 +10,10 @@ declare namespace NodeJS {
 
 		HOST: string,
 		PORT: string,
+
+		HTTPS: TrueFalse,
+		TLS_CERTIFICATE_PATH: string,
+		TLS_CERTIFICATE_KEY_PATH: string,
 
 		AWS_REGION: string,
 		AWS_ACCESS_KEY_ID: string,

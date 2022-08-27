@@ -103,15 +103,13 @@ const Project: FC<PropTypes> = ({
 					/>
 					{isStackExpanded && (
 						<ul className={bem("stack")}>
-							{stack.map(
-								technology => (
-									<li
-										key={technology}
-										children={technology}
-										className={bem("stack-technology", "BodyTwo")}
-									/>
-								),
-							)}
+							{stack.map(technology => (
+								<li
+									key={technology}
+									children={technology}
+									className={bem("stack-technology", "BodyTwo")}
+								/>
+							))}
 						</ul>
 					)}
 				</div>

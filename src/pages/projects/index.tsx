@@ -7,8 +7,7 @@ import Project from "../../components/project"
 
 import "./index.scss"
 
-const bem =
-	createBEM("ProjectsPage")
+const bem = createBEM("ProjectsPage")
 
 const ProjectsPage: FC = () => (
 	<div className={bem("")}>

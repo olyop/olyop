@@ -6,8 +6,7 @@ import { SkillLevelOptions } from "../../types"
 
 import "./index.scss"
 
-const bem =
-	createBEM("Level")
+const bem = createBEM("Level")
 
 const Level: FC<SkillLevelOptions> = ({ level }) => (
 	<div className="FlexColumnGapQuart">

@@ -15,15 +15,14 @@ const HomePage: FC = () => (
 			<h2 className={bem("title", "HeadingFive")}>
 				👋 Hello! 👋<br/>
 				My name is Oliver.<br/>
-				Welcome!
 			</h2>
 			<div className="FlexColumnGapHalf">
 				<p className="BodyOne">
 					I am a <b>fullstack</b> software developer<br/>
-					based in Sydney, Australia.
+					based in 🇦🇺 Sydney, Australia.
 				</p>
 				<p className="BodyOne">
-					I specialise in<br/>
+					I specialize in<br/>
 					designing, developing, and deploying<br/>
 					fully featured <b>single-page applications </b>
 					across the stack while scaling them in the cloud.

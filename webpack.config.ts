@@ -1,15 +1,19 @@
-import path from "path"
-import { Configuration, DefinePlugin } from "webpack"
+import path from "node:path"
+import { readFileSync } from "node:fs"
 import DotenvPlugin from "dotenv-webpack"
+import ESLintPlugin from "eslint-webpack-plugin"
+import webpack, { Configuration } from "webpack"
 import CopyWebpackPlugin from "copy-webpack-plugin"
 import HTMLWebpackPlugin from "html-webpack-plugin"
+import StylelintPlugin from "stylelint-webpack-plugin"
+import CompressionPlugin from "compression-webpack-plugin"
 import MiniCSSExtractPlugin from "mini-css-extract-plugin"
 import CSSMinimizerPlugin from "css-minimizer-webpack-plugin"
 import { Configuration as DevServerConfiguration } from "webpack-dev-server"
 
-import packageDotJSON from "./package.json"
+import packageDotJSON from "./package.json" assert { type: "json" }
 
-const IS_DEV =
+const IS_DEVELOPMENT =
 	process.env.NODE_ENV === "development"
 
 const ROOT_PATH = process.cwd()
@@ -24,84 +28,90 @@ const devServer: DevServerConfiguration = {
 	host: process.env.HOST,
 	port: process.env.PORT,
 	historyApiFallback: true,
-	client: { logging: "error" },
-	static: { directory: SRC_PUBLIC_PATH },
+	client: {
+		logging: "none",
+	},
+	static: {
+		directory: SRC_PUBLIC_PATH,
+	},
+	server: process.env.HTTPS === "true" ? {
+		type: "https",
+		options: {
+			cert: readFileSync(process.env.TLS_CERTIFICATE_PATH),
+			key: readFileSync(process.env.TLS_CERTIFICATE_KEY_PATH),
+		},
+	} : undefined,
 }
+
+const firstCSSLoader =
+	IS_DEVELOPMENT ?
+		"style-loader" :
+		MiniCSSExtractPlugin.loader
 
 const config: Configuration = {
 	devServer,
+	devtool: false,
 	stats: "errors-only",
 	entry: SRC_ROOT_PATH,
 	mode: process.env.NODE_ENV,
-	devtool: IS_DEV ? "inline-source-map" : false,
 	output: {
 		publicPath: "/",
 		path: BUILD_PATH,
-		filename: "[fullhash].js",
+		filename: "index-[fullhash].js",
 	},
-	ignoreWarnings: [
-		/Failed to parse source map/,
-	],
 	resolve: {
 		symlinks: false,
 		extensions: [".js", ".ts", ".tsx"],
 	},
+	watchOptions: {
+		ignored: "/node_modules/",
+	},
+	experiments: {
+		topLevelAwait: true,
+	},
 	module: {
-		rules: [
-			{
-				test: /\.js$/,
-				enforce: "pre",
-				loader: "source-map-loader",
+		rules: [{
+			test: /\.tsx?$/,
+			loader: "ts-loader",
+			options: {
+				onlyCompileBundledFiles: true,
 			},
-			{
-				test: /\.gql$/,
-				exclude: /node_modules/,
-				loader: "graphql-tag/loader",
-			},
-			{
-				test: /\.tsx?$/,
-				loader: "ts-loader",
-				exclude: /node_modules/,
-				options: {
-					onlyCompileBundledFiles: true,
-				},
-			},
-			{
-				test: /\.css$/,
-				use: [
-					IS_DEV ?
-						"style-loader" :
-						MiniCSSExtractPlugin.loader,
-					"css-loader",
-				],
-			},
-			{
-				test: /\.scss$/,
-				use: [
-					IS_DEV ?
-						"style-loader" :
-						MiniCSSExtractPlugin.loader,
-					"css-loader",
-					"sass-loader",
-				],
-			},
-		],
+		},{
+			test: /\.css$/,
+			use: [
+				firstCSSLoader,
+				"css-loader",
+			],
+		},{
+			test: /\.scss$/,
+			use: [
+				firstCSSLoader,
+				"css-loader",
+				"sass-loader",
+			],
+		}],
 	},
 	plugins: [
 		new DotenvPlugin(),
-		new DefinePlugin({
+		new webpack.DefinePlugin({
 			VERSION: JSON.stringify(packageDotJSON.version),
 		}),
 		new HTMLWebpackPlugin({
-			minify: false,
-			title: "olyop",
+			minify: true,
 			filename: "index.html",
 			template: SRC_ENTRY_PATH,
 		}),
-		...(IS_DEV ? [] : [
+		new StylelintPlugin({
+			extensions: ["scss"],
+		}),
+		new ESLintPlugin({
+			extensions: ["ts", "tsx"],
+		}),
+		...(IS_DEVELOPMENT ? [] : [
+			new CompressionPlugin(),
 			new CSSMinimizerPlugin(),
 			new MiniCSSExtractPlugin({
-				filename: "[fullhash].css",
+				filename: "index-[fullhash].css",
 			}),
 			new CopyWebpackPlugin({
 				patterns: [{

@@ -5,9 +5,12 @@ import { BrowserRouter } from "react-router-dom"
 import Index from "./components/index"
 import Metadata from "./components/metadata"
 
+const container =
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+	document.getElementById("Root")!
+
 const root =
-	// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-	createRoot(document.getElementById("Root")!)
+	createRoot(container)
 
 root.render(
 	<StrictMode>

@@ -7,8 +7,7 @@ import { Skill as SkillType } from "../../types"
 
 import "./index.scss"
 
-const bem =
-	createBEM("Skill")
+const bem = createBEM("Skill")
 
 const Skill: FC<SkillPropTypes> = ({
 	skill: {

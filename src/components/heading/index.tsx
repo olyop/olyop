@@ -5,8 +5,7 @@ import { createElement, FC, PropsWithChildren } from "react"
 
 import "./index.scss"
 
-const bem =
-	createBEM("Heading")
+const bem = createBEM("Heading")
 
 const Heading: FC<HeadingPropTypes> = ({ className, children }) => (
 	<div className={bem("", "MarginBottom FlexRowGapHalfCenter")}>

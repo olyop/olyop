@@ -9,8 +9,7 @@ import SettingsPage from "./settings"
 
 import "./index.scss"
 
-const bem =
-	createBEM("Pages")
+const bem = createBEM("Pages")
 
 const Pages: FC = () => (
 	<div className={bem("")}>

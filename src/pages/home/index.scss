@@ -1,7 +1,5 @@
 .Home {
-	display: flex;
 	align-items: center;
-	flex-direction: column;
 	gap: var(--space-triple);
 	&__title {
 		font-size: 28rem;

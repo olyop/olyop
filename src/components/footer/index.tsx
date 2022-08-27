@@ -27,39 +27,34 @@ const Footer: FC = () => (
 					}}
 				/>
 			</a>
-			<a
-				target="_blank"
-				href="/resume.pdf"
-				children={(
-					<Button
-						transparent
-						text="Résumé"
-						icon="download"
-						title="See résumé"
-						className={bem("résumé", "Border")}
-						iconTextClassName={bem("résumé-icon-text")}
-					/>
-				)}
-			/>
+			<a target="_blank" href="/resume.pdf">
+				<Button
+					transparent
+					text="Résumé"
+					icon="download"
+					title="See Résumé"
+					className={bem("resume", "Border")}
+					childrenClassName={bem("resume-icon-text")}
+				/>
+			</a>
 		</div>
 		<a
 			target="_blank"
 			rel="noreferrer"
 			href="https://github.com/olyop/olyop"
-			children={(
-				<Button
-					icon="code"
-					transparent
-					text="Source Code"
-					rightIcon="open_in_new"
-					className={bem("source-code")}
-					title="View olyop.com source code"
-					textClassName={bem("source-code-text")}
-					leftIconClassName={bem("source-code-left-icon")}
-					rightIconClassName={bem("source-code-right-icon")}
-				/>
-			)}
-		/>
+		>
+			<Button
+				icon="code"
+				transparent
+				text="Source Code"
+				rightIcon="open_in_new"
+				className={bem("source-code")}
+				title="View olyop.com source code"
+				textClassName={bem("source-code-text")}
+				leftIconClassName={bem("source-code-left-icon")}
+				rightIconClassName={bem("source-code-right-icon")}
+			/>
+		</a>
 	</div>
 )
 

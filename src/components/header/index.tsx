@@ -3,11 +3,10 @@ import Button from "@oly_op/react-button"
 import { NavLink } from "react-router-dom"
 import { createElement, Fragment, useEffect, useState, FC } from "react"
 
-import "../../fonts.scss"
 import "@oly_op/css-utilities/index.css"
-import "@oly_op/react-button/build/index.css"
+// eslint-disable-next-line import/extensions, import/no-unresolved
+import "@oly_op/react-button/index.css"
 import "../../index.scss"
-
 import "./index.scss"
 
 const bem =

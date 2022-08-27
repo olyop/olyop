@@ -3,20 +3,10 @@
 	"compilerOptions": {
 		"jsx": "react",
 		"jsxFactory": "createElement",
+		"exactOptionalPropertyTypes": false,
 		"baseUrl": "./",
-		"paths": { "*": ["types/*"] }
-	},
-	"ts-node": {
-		"files": true,
-		"compilerOptions": {
-			"target": "ES6",
-			"module": "CommonJS",
-			"baseUrl": "./",
-			"paths": { "*": ["types/*"] }
-		},
-		"moduleTypes": {
-			"scripts/*": "cjs",
-			"webpack.config.ts": "cjs"
+		"paths": {
+			"*": ["types/*"]
 		}
 	},
 	"include": [
@@ -24,5 +14,10 @@
 		"types",
 		"scripts",
 		"webpack.config.ts"
-	]
+	],
+	"ts-node": {
+		"swc": true,
+		"files": true,
+    "require": ["tsconfig-paths/register"]
+  }
 }

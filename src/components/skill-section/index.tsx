@@ -7,8 +7,7 @@ import { SkillSection as SkillSectionType } from "../../types"
 
 import "./index.scss"
 
-const bem =
-	createBEM("SkillSection")
+const bem = createBEM("SkillSection")
 
 const expandStyle: CSSProperties = {
 	height: "unset",
@@ -30,7 +29,8 @@ const SkillSection: FC<SkillSectionPropTypes> = ({
 		imagePath,
 	},
 }) => {
-	const [ isExpanded, setIsExpanded ] = useState(false)
+	const [ isExpanded, setIsExpanded ] =
+		useState(false)
 
 	const handleExpandOpen =
 		() => {

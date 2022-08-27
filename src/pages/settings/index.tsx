@@ -30,8 +30,7 @@ const normalizeStringCase =
 		return toLower.charAt(0).toUpperCase() + toLower.slice(1)
 	}
 
-const bem =
-	createBEM("SettingsPage")
+const bem = createBEM("SettingsPage")
 
 const SettingsPage: FC = () => {
 	const [ transitions, setTransitions ] =

@@ -17,26 +17,30 @@
 	--background-color-1: #fff3e0;
 	--background-color-2: #ffe0b2;
 
-	--font-family: "Roboto", sans-serif; }
+	--font-family: "Roboto", sans-serif;
+}
 
 #Root {
-	background-image:
-		linear-gradient(
-			-225deg,
-			var(--background-color-1) 0%,
-			var(--background-color-2) 100%,
-		); }
+	background-image: linear-gradient(
+		-225deg,
+		var(--background-color-1) 0%,
+		var(--background-color-2) 100%
+	);
+}
 
 .BodyOne,
 .BodyTwo {
-	line-height: 1.2; }
+	line-height: 1.2;
+}
 
 .BodyOne {
-	font-size: 20rem; }
+	font-size: 20rem;
+}
 
 .BodyTwo,
 .BodyTwoBold {
-	font-size: 16rem; }
+	font-size: 16rem;
+}
 
 .BodyOne,
 .BodyTwo,
@@ -44,4 +48,5 @@
 .BodyTwoBold,
 .HeadingFive,
 .HeadingSix {
-	text-align: center; }
+	text-align: center;
+}

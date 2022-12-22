@@ -4,9 +4,13 @@
 	overflow: hidden;
 	position: relative;
 	@media (max-width: 600px) {
-		width: 100%; }
+		width: 100%;
+	}
 	&__inner {
 		position: absolute;
 		overflow-y: scroll;
 		&::-webkit-scrollbar {
-			display: none; } } }
+			display: none;
+		}
+	}
+}

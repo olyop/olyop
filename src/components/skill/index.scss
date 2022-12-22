@@ -2,10 +2,16 @@
 	&__button {
 		align-self: stretch;
 		&-image {
-			border-radius: unset; }
+			border-radius: unset;
+		}
 		&-icon {
-			transition: var(--transition-duration) transform; } }
+			transition: var(--transition-duration) transform;
+		}
+	}
 	&__details {
-		gap: var(--space-double); }
+		gap: var(--space-double);
+	}
 	&__content {
-		width: 400rem; } }
+		width: 400rem;
+	}
+}

@@ -1,54 +1,39 @@
-import { createBEM } from "@oly_op/bem"
-import Button from "@oly_op/react-button"
-import { Metadata } from "@oly_op/react-metadata"
-import { createElement, Fragment, useEffect, useState, FC } from "react"
+import { createBEM } from "@oly_op/bem";
+import Button from "@oly_op/react-button";
+import { Metadata } from "@oly_op/react-metadata";
+import { createElement, Fragment, useEffect, useState, FC } from "react";
 
-import { Project as ProjectType } from "../../types"
+import { Project as ProjectType } from "../../types";
 
-import "./index.scss"
+import "./index.scss";
 
-const bem =
-	createBEM("Project")
+const bem = createBEM("Project");
 
 const Project: FC<PropTypes> = ({
-	project: {
-		link,
-		name,
-		stack,
-		imageURL,
-		description,
-		sourceCodeURL,
-	},
+	project: { link, name, stack, imageURL, description, sourceCodeURL },
 }) => {
-	const [ isExpanded, setIsExpanded ] =
-		useState(false)
+	const [isExpanded, setIsExpanded] = useState(false);
 
-	const [ isStackExpanded, setIsStackExpanded ] =
-		useState(false)
+	const [isStackExpanded, setIsStackExpanded] = useState(false);
 
-	const handleExpandToggle =
-		() => setIsExpanded(prevState => !prevState)
+	const handleExpandToggle = () => setIsExpanded(prevState => !prevState);
 
-	const handleStackExpandToggle =
-		() => setIsStackExpanded(prevState => !prevState)
+	const handleStackExpandToggle = () => setIsStackExpanded(prevState => !prevState);
 
-	useEffect(() => () => {
-		setIsExpanded(false)
-		setIsStackExpanded(false)
-	}, [])
+	useEffect(
+		() => () => {
+			setIsExpanded(false);
+			setIsStackExpanded(false);
+		},
+		[],
+	);
 
 	return (
 		<Metadata title="Projects">
 			<div className="Padding FlexColumnCenterGap Border Rounded">
-				<img
-					src={imageURL}
-					alt="Musicloud"
-					className={bem("image", "Border Rounded")}
-				/>
+				<img src={imageURL} alt="Musicloud" className={bem("image", "Border Rounded")} />
 				<div className="FlexColumnGapQuart">
-					<h3 className="HeadingFive">
-						{name}
-					</h3>
+					<h3 className="HeadingFive">{name}</h3>
 					<a
 						target="_blank"
 						rel="noreferrer"
@@ -56,11 +41,7 @@ const Project: FC<PropTypes> = ({
 						children={link.text}
 						className={bem("link", "BodyTwo")}
 					/>
-					<a
-						target="_blank"
-						rel="noreferrer"
-						href={sourceCodeURL}
-					>
+					<a target="_blank" rel="noreferrer" href={sourceCodeURL}>
 						<Button
 							icon="code"
 							transparent
@@ -71,15 +52,15 @@ const Project: FC<PropTypes> = ({
 					</a>
 				</div>
 				<div className={bem("description", "FlexColumnCenterGapHalf")}>
-					{(isExpanded ? description : description.slice(0, 1)).map(
-						(paragraph, index, array) => (
-							<p
-								key={paragraph}
-								className="BodyTwo"
-								children={index + 1 === array.length ? (
+					{(isExpanded ? description : description.slice(0, 1)).map((paragraph, index, array) => (
+						<p
+							key={paragraph}
+							className="BodyTwo"
+							children={
+								index + 1 === array.length ? (
 									<Fragment>
 										{paragraph}
-										<br/>
+										<br />
 										<button
 											type="button"
 											onClick={handleExpandToggle}
@@ -87,10 +68,12 @@ const Project: FC<PropTypes> = ({
 											children={isExpanded ? "Show less" : "Show more"}
 										/>
 									</Fragment>
-								) : paragraph}
-							/>
-						),
-					)}
+								) : (
+									paragraph
+								)
+							}
+						/>
+					))}
 				</div>
 				<div className="FlexColumnGapHalf">
 					<Button
@@ -115,11 +98,11 @@ const Project: FC<PropTypes> = ({
 				</div>
 			</div>
 		</Metadata>
-	)
-}
+	);
+};
 
 interface PropTypes {
-	project: ProjectType,
+	project: ProjectType;
 }
 
-export default Project
+export default Project;

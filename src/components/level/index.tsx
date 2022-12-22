@@ -1,39 +1,28 @@
 /* eslint-disable react/no-array-index-key */
-import { createBEM } from "@oly_op/bem"
-import { createElement, FC } from "react"
+import { createBEM } from "@oly_op/bem";
+import { createElement, FC } from "react";
 
-import { SkillLevelOptions } from "../../types"
+import { SkillLevelOptions } from "../../types";
 
-import "./index.scss"
+import "./index.scss";
 
-const bem = createBEM("Level")
+const bem = createBEM("Level");
 
 const Level: FC<SkillLevelOptions> = ({ level }) => (
 	<div className="FlexColumnGapQuart">
-		<p className="BodyTwoBold">
-			Level:
-		</p>
+		<p className="BodyTwoBold">Level:</p>
 		<div className={bem("")}>
-			{Array(level).fill(0).map(
-				(_, index) => (
-					<div
-						key={index}
-						className={bem("icon-filled", "icon")}
-					/>
-				),
-			)}
-			{level < 5 && (
-				Array(5 - level).fill(0).map(
-					(_, index) => (
-						<div
-							key={level + index}
-							className={bem("icon")}
-						/>
-					),
-				)
-			)}
+			{Array(level)
+				.fill(0)
+				.map((_, index) => (
+					<div key={index} className={bem("icon-filled", "icon")} />
+				))}
+			{level < 5 &&
+				Array(5 - level)
+					.fill(0)
+					.map((_, index) => <div key={level + index} className={bem("icon")} />)}
 		</div>
 	</div>
-)
+);
 
-export default Level
+export default Level;

@@ -9,39 +9,38 @@ export enum SkillExperience {
 }
 
 interface SkillBase {
-	title: string,
-	icon?: string,
-	imagePath?: string,
+	title: string;
+	icon?: string;
+	imagePath?: string;
 }
 
-export type SkillLevel =
-	1 | 2 | 3 | 4 | 5
+export type SkillLevel = 1 | 2 | 3 | 4 | 5;
 
 export interface SkillLevelOptions {
-	level: SkillLevel,
+	level: SkillLevel;
 }
 
 export interface Skill extends SkillBase, SkillLevelOptions {
-	content?: string,
-	experience: SkillExperience,
+	content?: string;
+	experience: SkillExperience;
 }
 
 export interface SkillSection extends SkillBase {
-	skills: Skill[],
+	skills: Skill[];
 }
 
 export interface ProjectLink {
-	url: string,
-	text: string,
+	url: string;
+	text: string;
 }
 
 export interface Project {
-	name: string,
-	stack: string[],
-	imageURL: string,
-	link: ProjectLink,
-	description: string[],
-	sourceCodeURL: string,
+	name: string;
+	stack: string[];
+	imageURL: string;
+	link: ProjectLink;
+	description: string[];
+	sourceCodeURL: string;
 }
 
 export enum SettingsTransitions {

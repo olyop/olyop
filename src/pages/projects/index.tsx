@@ -1,30 +1,23 @@
-import { createBEM } from "@oly_op/bem"
-import { createElement, FC } from "react"
+import { createBEM } from "@oly_op/bem";
+import { createElement, FC } from "react";
 
-import content from "./content"
-import Heading from "../../components/heading"
-import Project from "../../components/project"
+import content from "./content";
+import Heading from "../../components/heading";
+import Project from "../../components/project";
 
-import "./index.scss"
+import "./index.scss";
 
-const bem = createBEM("ProjectsPage")
+const bem = createBEM("ProjectsPage");
 
 const ProjectsPage: FC = () => (
 	<div className={bem("")}>
-		<Heading>
-			Projects
-		</Heading>
+		<Heading>Projects</Heading>
 		<div className={bem("list", "FlexColumnGap")}>
-			{content.map(
-				project => (
-					<Project
-						project={project}
-						key={project.name}
-					/>
-				),
-			)}
+			{content.map(project => (
+				<Project project={project} key={project.name} />
+			))}
 		</div>
 	</div>
-)
+);
 
-export default ProjectsPage
+export default ProjectsPage;

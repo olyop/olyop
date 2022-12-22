@@ -1,35 +1,22 @@
-import { createBEM } from "@oly_op/bem"
-import Button from "@oly_op/react-button"
-import { createElement, Fragment, useState, FC } from "react"
+import { createBEM } from "@oly_op/bem";
+import Button from "@oly_op/react-button";
+import { createElement, Fragment, useState, FC } from "react";
 
-import Level from "../level"
-import { Skill as SkillType } from "../../types"
+import Level from "../level";
+import { Skill as SkillType } from "../../types";
 
-import "./index.scss"
+import "./index.scss";
 
-const bem = createBEM("Skill")
+const bem = createBEM("Skill");
 
-const Skill: FC<SkillPropTypes> = ({
-	skill: {
-		title,
-		level,
-		content,
-		imagePath,
-		experience,
-	},
-}) => {
-	const [ isExpanded, setIsExpanded ] = useState(false)
+const Skill: FC<SkillPropTypes> = ({ skill: { title, level, content, imagePath, experience } }) => {
+	const [isExpanded, setIsExpanded] = useState(false);
 
-	const handleToggleExpand =
-		() => setIsExpanded(prevState => !prevState)
+	const handleToggleExpand = () => setIsExpanded(prevState => !prevState);
 
 	return (
 		<div
-			className={bem(
-				"",
-				isExpanded ? "Border Rounded" : undefined,
-				"FlexColumnCenterGapHalf",
-			)}
+			className={bem("", isExpanded ? "Border Rounded" : undefined, "FlexColumnCenterGapHalf")}
 			style={isExpanded ? { gridColumn: "1 / -1" } : undefined}
 		>
 			<Button
@@ -47,33 +34,23 @@ const Skill: FC<SkillPropTypes> = ({
 			{isExpanded && (
 				<Fragment>
 					<div className={bem("details", "FlexRow")}>
-						<Level
-							level={level}
-						/>
+						<Level level={level} />
 						<div className="FlexColumnGapQuart">
-							<p className="BodyTwoBold">
-								Experience:
-							</p>
-							<p className="BodyTwo">
-								{experience}
-							</p>
+							<p className="BodyTwoBold">Experience:</p>
+							<p className="BodyTwo">{experience}</p>
 						</div>
 					</div>
 					<div className={bem("content", "PaddingBottom")}>
-						{content && (
-							<p className="BodyTwo">
-								{content}
-							</p>
-						)}
+						{content && <p className="BodyTwo">{content}</p>}
 					</div>
 				</Fragment>
 			)}
 		</div>
-	)
-}
+	);
+};
 
 interface SkillPropTypes {
-	skill: SkillType,
+	skill: SkillType;
 }
 
-export default Skill
+export default Skill;

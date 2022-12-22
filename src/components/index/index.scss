@@ -2,7 +2,8 @@
 	position: relative;
 	padding: 0 calc(var(--button-dimension) + var(--space));
 	@media (max-width: 800px) {
-		padding: var(--space-double); }
+		padding: var(--space-double);
+	}
 	&__settings {
 		position: absolute;
 		top: var(--space-half);
@@ -11,7 +12,9 @@
 			--length: calc(var(--space-double) + (60rem / 2));
 			right: var(--length);
 			top: calc(var(--length) + 3rem);
-			transform: translate(50%, -50%); } }
+			transform: translate(50%, -50%);
+		}
+	}
 	&__inner {
 		height: 100%;
 		gap: var(--space-triple);
@@ -19,4 +22,7 @@
 		@media (max-width: 800px) {
 			border: 0;
 			padding: 0;
-			gap: var(--space-triple); } } }
+			gap: var(--space-triple);
+		}
+	}
+}

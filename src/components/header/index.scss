@@ -6,18 +6,22 @@
 		font-family: "Yeseva One", sans-serif;
 		transition: var(--transition-duration) color;
 		&:hover {
-			color: var(--primary-color); } }
+			color: var(--primary-color);
+		}
+	}
 	&__separator {
 		width: 100rem;
 		height: var(--border-width);
-		background-color: var(--border-color); }
+		background-color: var(--border-color);
+	}
 	&__address {
 		&-text {
 			font-size: 16rem;
 			font-weight: 400;
 			font-style: italic;
 			letter-spacing: 0.25rem;
-			text-transform: lowercase; }
+			text-transform: lowercase;
+		}
 		&-email {
 			--button-dimension: 45rem;
 			gap: var(--space-three-quart);
@@ -25,11 +29,14 @@
 				--dim: 17rem;
 				&-right {
 					margin-left: 0;
-					transition: var(--transition-duration) opacity; } }
+					transition: var(--transition-duration) opacity;
+				}
+			}
 			&-text {
 				position: relative;
 				&-copied {
-					text-transform: capitalize; }
+					text-transform: capitalize;
+				}
 				&-underline {
 					left: 0;
 					width: 100%;
@@ -39,9 +46,16 @@
 					transform: scaleX(0);
 					transform-origin: bottom right;
 					background-color: var(--primary-color);
-					transition: transform var(--transition-duration) ease-out; } }
+					transition: transform var(--transition-duration) ease-out;
+				}
+			}
 			&:hover &-icon-right {
-				opacity: 1; }
+				opacity: 1;
+			}
 			&:hover &-text-underline {
 				transform: scaleX(1);
-				transform-origin: bottom left; } } } }
+				transform-origin: bottom left;
+			}
+		}
+	}
+}

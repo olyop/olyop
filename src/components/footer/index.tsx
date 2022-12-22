@@ -1,21 +1,15 @@
-import { createBEM } from "@oly_op/bem"
-import Button from "@oly_op/react-button"
-import { createElement, FC } from "react"
+import { createBEM } from "@oly_op/bem";
+import Button from "@oly_op/react-button";
+import { createElement, FC } from "react";
 
-import "./index.scss"
+import "./index.scss";
 
-const bem =
-	createBEM("Footer")
+const bem = createBEM("Footer");
 
 const Footer: FC = () => (
 	<div className="FlexColumnCenterGapHalf">
 		<div className="FlexRowGapHalfCenter">
-			<a
-				target="_blank"
-				rel="noreferrer"
-				className={bem("github")}
-				href="https://github.com/olyop"
-			>
+			<a target="_blank" rel="noreferrer" className={bem("github")} href="https://github.com/olyop">
 				<Button
 					transparent
 					text="GitHub"
@@ -38,11 +32,7 @@ const Footer: FC = () => (
 				/>
 			</a>
 		</div>
-		<a
-			target="_blank"
-			rel="noreferrer"
-			href="https://github.com/olyop/olyop"
-		>
+		<a target="_blank" rel="noreferrer" href="https://github.com/olyop/olyop">
 			<Button
 				icon="code"
 				transparent
@@ -56,6 +46,6 @@ const Footer: FC = () => (
 			/>
 		</a>
 	</div>
-)
+);
 
-export default Footer
+export default Footer;

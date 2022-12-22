@@ -1,20 +1,29 @@
 .Project {
 	&__image {
-		align-self: stretch; }
+		align-self: stretch;
+	}
 	&__link {
 		font-size: 14rem;
 		color: var(--primary-color);
 		&:hover {
-			text-decoration: underline; } }
+			text-decoration: underline;
+		}
+	}
 	&__description {
 		width: 375rem;
 		&-expand {
 			cursor: pointer;
-			color: var(--primary-color); } }
+			color: var(--primary-color);
+		}
+	}
 	&__button {
-		--button-dimension: 32rem; }
+		--button-dimension: 32rem;
+	}
 	&__stack {
 		&-technology {
 			width: 100%;
 			list-style: none;
-			text-align: center; } } }
+			text-align: center;
+		}
+	}
+}

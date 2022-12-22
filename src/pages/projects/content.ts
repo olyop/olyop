@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/quotes */
-import { Project } from "../../types"
+import { Project } from "../../types";
 
 const content: Project[] = [
 	{
@@ -52,6 +52,6 @@ const content: Project[] = [
 			and implementing new ideas and technologies.`,
 		],
 	},
-]
+];
 
-export default content
+export default content;

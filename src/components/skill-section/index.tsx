@@ -1,44 +1,34 @@
-import { createBEM } from "@oly_op/bem"
-import Button from "@oly_op/react-button"
-import { createElement, CSSProperties, useState, FC } from "react"
+import { createBEM } from "@oly_op/bem";
+import Button from "@oly_op/react-button";
+import { createElement, CSSProperties, useState, FC } from "react";
 
-import Skill from "../skill"
-import { SkillSection as SkillSectionType } from "../../types"
+import Skill from "../skill";
+import { SkillSection as SkillSectionType } from "../../types";
 
-import "./index.scss"
+import "./index.scss";
 
-const bem = createBEM("SkillSection")
+const bem = createBEM("SkillSection");
 
 const expandStyle: CSSProperties = {
 	height: "unset",
 	visibility: "visible",
 	transform: "scaleY(1)",
-}
+};
 
 const closedStyle: CSSProperties = {
 	height: 0,
 	visibility: "hidden",
 	transform: "scaleY(0)",
-}
+};
 
-const SkillSection: FC<SkillSectionPropTypes> = ({
-	skill: {
-		icon,
-		title,
-		skills,
-		imagePath,
-	},
-}) => {
-	const [ isExpanded, setIsExpanded ] =
-		useState(false)
+const SkillSection: FC<SkillSectionPropTypes> = ({ skill: { icon, title, skills, imagePath } }) => {
+	const [isExpanded, setIsExpanded] = useState(false);
 
-	const handleExpandOpen =
-		() => {
-			if (!isExpanded) setIsExpanded(true)
-		}
+	const handleExpandOpen = () => {
+		if (!isExpanded) setIsExpanded(true);
+	};
 
-	const handleExpandClose =
-		() => setIsExpanded(false)
+	const handleExpandClose = () => setIsExpanded(false);
 
 	return (
 		<button
@@ -48,6 +38,7 @@ const SkillSection: FC<SkillSectionPropTypes> = ({
 			style={isExpanded ? { borderColor: "var(--border-color)" } : { cursor: "pointer" }}
 		>
 			<Button
+				isHTMLButton={false}
 				transparent
 				icon="expand_more"
 				className={bem("expand")}
@@ -57,14 +48,10 @@ const SkillSection: FC<SkillSectionPropTypes> = ({
 			/>
 			<div className="FlexRowGapHalfCenter">
 				{imagePath ? (
-					<img
-						alt={title}
-						title={title}
-						src={imagePath}
-						className={bem("image")}
-					/>
+					<img alt={title} title={title} src={imagePath} className={bem("image")} />
 				) : (
 					<Button
+						isHTMLButton={false}
 						transparent
 						icon={icon}
 						title={title}
@@ -72,29 +59,19 @@ const SkillSection: FC<SkillSectionPropTypes> = ({
 						iconClassName={bem("icon-icon")}
 					/>
 				)}
-				<h3 className={bem("title", "HeadingFive")}>
-					{title}
-				</h3>
+				<h3 className={bem("title", "HeadingFive")}>{title}</h3>
 			</div>
-			<div
-				className={bem("content")}
-				style={isExpanded ? expandStyle : closedStyle}
-			>
-				{skills.map(
-					skill => (
-						<Skill
-							skill={skill}
-							key={skill.title}
-						/>
-					),
-				)}
+			<div className={bem("content")} style={isExpanded ? expandStyle : closedStyle}>
+				{skills.map(skill => (
+					<Skill skill={skill} key={skill.title} />
+				))}
 			</div>
 		</button>
-	)
-}
+	);
+};
 
 interface SkillSectionPropTypes {
-	skill: SkillSectionType,
+	skill: SkillSectionType;
 }
 
-export default SkillSection
+export default SkillSection;

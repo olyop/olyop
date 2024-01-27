@@ -156,7 +156,7 @@ const content: SkillSection[] = [
 				imagePath: "/vpc.svg",
 				experience: SkillExperience.ONE_YEAR,
 				content: `
-			I am proficent in creating a secure VPC
+			I am proficient in creating a secure VPC
 			with subnets, ACLs, Gateways, and Route Tables
 			that are resilient to outages. 
 		`,
